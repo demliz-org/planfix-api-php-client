@@ -7,6 +7,5 @@
    "gitUserId": "demliz-org",
    "gitRepoId": "planfix-api-php-client",
    "composerVendorName": "demliz",
-   "composerProjectName": "planfix-api-client",
-   "artifactVersion": "1.0.3"
+   "composerProjectName": "planfix-api-client"
 }
