@@ -21,11 +21,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/demliz-org/planfix-api.git"
+      "url": "https://github.com/demliz/planfix-api-client.git"
     }
   ],
   "require": {
-    "demliz-org/planfix-api": "*@dev"
+    "demliz/planfix-api-client": "*@dev"
   }
 }
 ```
