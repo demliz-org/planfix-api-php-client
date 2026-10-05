@@ -10,7 +10,7 @@ if [ ! -f $SCRIPT_DIR/sources/spec.json ] ; then
 fi
 
 if [ ! -f $SCRIPT_DIR/sources/swagger-codegen-cli.jar ] ; then
-  wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.44/swagger-codegen-cli-3.0.44.jar -O $SCRIPT_DIR/sources/swagger-codegen-cli.jar
+  wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.82/swagger-codegen-cli-3.0.82.jar -O $SCRIPT_DIR/sources/swagger-codegen-cli.jar
 fi
 
 # You can check config options by invoking:
