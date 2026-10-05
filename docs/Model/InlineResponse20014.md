@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **result** | **string** |  | [optional] 
-**file** | [**\Planfix\Model\FileResponse**](FileResponse.md) |  | [optional] 
+**item** | [**\Planfix\Model\ChecklistItemResponse**](ChecklistItemResponse.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

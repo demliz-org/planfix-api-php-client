@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**startDate** | [**\Planfix\Model\TimePoint**](TimePoint.md) |  | [optional] 
+**startDate** | [**AllOfRecurrenceStartDate**](AllOfRecurrenceStartDate.md) | Recurrence start date as TimePoint. | [optional] 
 **endConditions** | [**\Planfix\Model\RecurrenceEndConditions**](RecurrenceEndConditions.md) |  | [optional] 
 **daily** | [**\Planfix\Model\RecurrenceDaily**](RecurrenceDaily.md) |  | [optional] 
 **weekly** | [**\Planfix\Model\RecurrenceWeekly**](RecurrenceWeekly.md) |  | [optional] 

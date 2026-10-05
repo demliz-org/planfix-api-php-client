@@ -4,74 +4,15 @@ All URIs are relative to *https://your-account.planfix.com/rest*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCustomfieldContact**](CustomFieldsApi.md#getcustomfieldcontact) | **GET** /customfield/contact | Get a list of a custom contact fields
 [**getCustomfieldGeneric**](CustomFieldsApi.md#getcustomfieldgeneric) | **GET** /customfield/main | Get list of custom main fields
-[**getCustomfieldProject**](CustomFieldsApi.md#getcustomfieldproject) | **GET** /customfield/project | Get a list of custom project fields
-[**getCustomfieldTask**](CustomFieldsApi.md#getcustomfieldtask) | **GET** /customfield/task | Get list of custom task fields
-[**getCustomfieldUser**](CustomFieldsApi.md#getcustomfielduser) | **GET** /customfield/user | Get list of custom employee fields
-[**getCustomfieldsForContact**](CustomFieldsApi.md#getcustomfieldsforcontact) | **GET** /customfield/contact/{id} | Get a list of a custom fields for contact
+[**getCustomfieldTypes**](CustomFieldsApi.md#getcustomfieldtypes) | **GET** /customfield/type | Get a list of a custom field types
 [**getCustomfieldsForDatatag**](CustomFieldsApi.md#getcustomfieldsfordatatag) | **GET** /customfield/datatag/{id} | Get list of custom fields for data tag
 [**getCustomfieldsForDirectory**](CustomFieldsApi.md#getcustomfieldsfordirectory) | **GET** /customfield/directory/{id} | Get list of custom fields for directory
-[**getCustomfieldsForProject**](CustomFieldsApi.md#getcustomfieldsforproject) | **GET** /customfield/project/{id} | Get list of custom fields for project
-[**getCustomfieldsForTask**](CustomFieldsApi.md#getcustomfieldsfortask) | **GET** /customfield/task/{id} | Get list of custom fields for task
-[**getCustomfieldsForUser**](CustomFieldsApi.md#getcustomfieldsforuser) | **GET** /customfield/user/{id} | Get list of custom fields for employee
-
-# **getCustomfieldContact**
-> \Planfix\Model\InlineResponse20026 getCustomfieldContact($fields)
-
-Get a list of a custom contact fields
-
-This method lets you get a list of custom contact and company fields
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Planfix\Api\CustomFieldsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
-
-try {
-    $result = $apiInstance->getCustomfieldContact($fields);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getCustomfieldContact: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
-
-### Return type
-
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
-
-### Authorization
-
-[rest_auth](../../README.md#rest_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[**postCustomfieldMainAdd**](CustomFieldsApi.md#postcustomfieldmainadd) | **POST** /customfield/main/ | Create a custom main field
+[**postCustomfieldMainUpdate**](CustomFieldsApi.md#postcustomfieldmainupdate) | **POST** /customfield/main/{id} | Update a custom main field
 
 # **getCustomfieldGeneric**
-> \Planfix\Model\InlineResponse20026 getCustomfieldGeneric($fields)
+> \Planfix\Model\InlineResponse20034 getCustomfieldGeneric($fields)
 
 Get list of custom main fields
 
@@ -92,7 +33,7 @@ $apiInstance = new Planfix\Api\CustomFieldsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
+$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, type, objectType, directoryId, directoryFields, enumValues, listValuesColors, mainValue
 
 try {
     $result = $apiInstance->getCustomfieldGeneric($fields);
@@ -107,11 +48,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
+ **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, type, objectType, directoryId, directoryFields, enumValues, listValuesColors, mainValue | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Planfix\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -124,12 +65,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getCustomfieldProject**
-> \Planfix\Model\InlineResponse20026 getCustomfieldProject($fields)
+# **getCustomfieldTypes**
+> \Planfix\Model\InlineResponse20033 getCustomfieldTypes()
 
-Get a list of custom project fields
+Get a list of a custom field types
 
-This method lets you get a list of custom project fields
+This method lets you get a list of custom field types
 
 ### Example
 ```php
@@ -146,190 +87,22 @@ $apiInstance = new Planfix\Api\CustomFieldsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited
 
 try {
-    $result = $apiInstance->getCustomfieldProject($fields);
+    $result = $apiInstance->getCustomfieldTypes();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getCustomfieldProject: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomFieldsApi->getCustomfieldTypes: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
-
-### Authorization
-
-[rest_auth](../../README.md#rest_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getCustomfieldTask**
-> \Planfix\Model\InlineResponse20026 getCustomfieldTask($fields)
-
-Get list of custom task fields
-
-This method lets you get a list of custom task fields
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Planfix\Api\CustomFieldsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
-
-try {
-    $result = $apiInstance->getCustomfieldTask($fields);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getCustomfieldTask: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
-
-### Return type
-
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
-
-### Authorization
-
-[rest_auth](../../README.md#rest_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getCustomfieldUser**
-> \Planfix\Model\InlineResponse20026 getCustomfieldUser($fields)
-
-Get list of custom employee fields
-
-This method lets you get a list of custom employee fields
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Planfix\Api\CustomFieldsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
-
-try {
-    $result = $apiInstance->getCustomfieldUser($fields);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getCustomfieldUser: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
-
-### Return type
-
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
-
-### Authorization
-
-[rest_auth](../../README.md#rest_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getCustomfieldsForContact**
-> \Planfix\Model\InlineResponse20026 getCustomfieldsForContact($id, $fields)
-
-Get a list of a custom fields for contact
-
-This method lets you get a list of custom fields for contact or company
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Planfix\Api\CustomFieldsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = "id_example"; // string | Number of contact
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
-
-try {
-    $result = $apiInstance->getCustomfieldsForContact($id, $fields);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getCustomfieldsForContact: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Number of contact |
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
-
-### Return type
-
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Planfix\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
 
 ### Authorization
 
@@ -343,7 +116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomfieldsForDatatag**
-> \Planfix\Model\InlineResponse20026 getCustomfieldsForDatatag($id, $fields)
+> \Planfix\Model\InlineResponse20034 getCustomfieldsForDatatag($id, $fields)
 
 Get list of custom fields for data tag
 
@@ -364,8 +137,8 @@ $apiInstance = new Planfix\Api\CustomFieldsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | Data tag ID
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
+$id = "id_example"; // string | Data tag identifier
+$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
 
 try {
     $result = $apiInstance->getCustomfieldsForDatatag($id, $fields);
@@ -380,12 +153,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Data tag ID |
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
+ **id** | **string**| Data tag identifier |
+ **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Planfix\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -399,7 +172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomfieldsForDirectory**
-> \Planfix\Model\InlineResponse20026 getCustomfieldsForDirectory($id, $fields)
+> \Planfix\Model\InlineResponse20034 getCustomfieldsForDirectory($id, $fields)
 
 Get list of custom fields for directory
 
@@ -420,8 +193,8 @@ $apiInstance = new Planfix\Api\CustomFieldsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | Directory ID
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
+$id = "id_example"; // string | Directory identifier
+$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
 
 try {
     $result = $apiInstance->getCustomfieldsForDirectory($id, $fields);
@@ -436,12 +209,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Directory ID |
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
+ **id** | **string**| Directory identifier |
+ **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Planfix\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -454,12 +227,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getCustomfieldsForProject**
-> \Planfix\Model\InlineResponse20026 getCustomfieldsForProject($id, $fields)
+# **postCustomfieldMainAdd**
+> \Planfix\Model\InlineResponse201 postCustomfieldMainAdd($body)
 
-Get list of custom fields for project
+Create a custom main field
 
-This method lets you get a list of custom fields for project
+This method lets you create a custom main field
 
 ### Example
 ```php
@@ -476,14 +249,13 @@ $apiInstance = new Planfix\Api\CustomFieldsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 789; // int | Number of task
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
+$body = new \Planfix\Model\CustomField(); // \Planfix\Model\CustomField | 
 
 try {
-    $result = $apiInstance->getCustomfieldsForProject($id, $fields);
+    $result = $apiInstance->postCustomfieldMainAdd($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getCustomfieldsForProject: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomFieldsApi->postCustomfieldMainAdd: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -492,12 +264,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Number of task |
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
+ **body** | [**\Planfix\Model\CustomField**](../Model/CustomField.md)|  | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Planfix\Model\InlineResponse201**](../Model/InlineResponse201.md)
 
 ### Authorization
 
@@ -505,17 +276,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getCustomfieldsForTask**
-> \Planfix\Model\InlineResponse20026 getCustomfieldsForTask($id, $fields)
+# **postCustomfieldMainUpdate**
+> \Planfix\Model\InlineResponse20036 postCustomfieldMainUpdate($id, $body)
 
-Get list of custom fields for task
+Update a custom main field
 
-This method lets you get a list of custom fields for task
+This method lets you update a custom main field
 
 ### Example
 ```php
@@ -532,14 +303,14 @@ $apiInstance = new Planfix\Api\CustomFieldsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 789; // int | Number of task
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
+$id = "id_example"; // string | Main field identifier
+$body = new \Planfix\Model\CustomField(); // \Planfix\Model\CustomField | 
 
 try {
-    $result = $apiInstance->getCustomfieldsForTask($id, $fields);
+    $result = $apiInstance->postCustomfieldMainUpdate($id, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getCustomfieldsForTask: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomFieldsApi->postCustomfieldMainUpdate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -548,12 +319,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Number of task |
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
+ **id** | **string**| Main field identifier |
+ **body** | [**\Planfix\Model\CustomField**](../Model/CustomField.md)|  | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Planfix\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
 
 ### Authorization
 
@@ -561,63 +332,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getCustomfieldsForUser**
-> \Planfix\Model\InlineResponse20026 getCustomfieldsForUser($id, $fields)
-
-Get list of custom fields for employee
-
-This method lets you get a list of custom fields for employee
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Planfix\Api\CustomFieldsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = "id_example"; // string | Number of employee
-$fields = "fields_example"; // string | Fields returned - names, comma-delimited
-
-try {
-    $result = $apiInstance->getCustomfieldsForUser($id, $fields);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getCustomfieldsForUser: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Number of employee |
- **fields** | **string**| Fields returned - names, comma-delimited | [optional]
-
-### Return type
-
-[**\Planfix\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
-
-### Authorization
-
-[rest_auth](../../README.md#rest_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

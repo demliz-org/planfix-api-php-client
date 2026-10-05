@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getDirectoryIdEntryKey**](DirectoryApi.md#getdirectoryidentrykey) | **GET** /directory/{id}/entry/{key} | Get directory entry
 [**getListDirectories**](DirectoryApi.md#getlistdirectories) | **POST** /directory/list | Get list of directories
 [**postAddDirectoryEntry**](DirectoryApi.md#postadddirectoryentry) | **POST** /directory/{id}/entry/ | Add directory entry
+[**postDirectoryEntriesFilters**](DirectoryApi.md#postdirectoryentriesfilters) | **POST** /directory/{id}/filters | Get list directory entries filters
 [**postListDirectoryEntries**](DirectoryApi.md#postlistdirectoryentries) | **POST** /directory/{id}/entry/list | Get list of directory entries
 [**postUpdateDirectoryEntry**](DirectoryApi.md#postupdatedirectoryentry) | **POST** /directory/{id}/entry/{key} | Update directory entry
 
@@ -36,7 +37,7 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     $config
 );
 $key = 56; // int | Key of the directory entry
-$id = "id_example"; // string | Directory ID
+$id = "id_example"; // string | Directory identifier
 
 try {
     $apiInstance->deleteDirectoryEntryKey($key, $id);
@@ -51,7 +52,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **int**| Key of the directory entry |
- **id** | **string**| Directory ID |
+ **id** | **string**| Directory identifier |
 
 ### Return type
 
@@ -69,7 +70,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDirectoriesGroups**
-> \Planfix\Model\InlineResponse2004 getDirectoriesGroups($fields)
+> \Planfix\Model\InlineResponse2006 getDirectoriesGroups($fields)
 
 Get list of directory groups
 
@@ -90,7 +91,7 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited
+$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name
 
 try {
     $result = $apiInstance->getDirectoriesGroups($fields);
@@ -105,11 +106,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - system field names, comma-delimited | [optional]
+ **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\Planfix\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -123,7 +124,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDirectoryById**
-> \Planfix\Model\InlineResponse20022 getDirectoryById($id, $fields)
+> \Planfix\Model\InlineResponse20029 getDirectoryById($id, $fields)
 
 Get directory by identifier
 
@@ -144,8 +145,8 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Directory ID
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited
+$id = 56; // int | Directory identifier
+$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, group, fields, sourceObjectId, sourceDataVersion
 
 try {
     $result = $apiInstance->getDirectoryById($id, $fields);
@@ -160,12 +161,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Directory ID |
- **fields** | **string**| Fields returned - system field names, comma-delimited | [optional]
+ **id** | **int**| Directory identifier |
+ **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, group, fields, sourceObjectId, sourceDataVersion | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\Planfix\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
 
 ### Authorization
 
@@ -179,7 +180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDirectoryIdEntryKey**
-> \Planfix\Model\InlineResponse20024 getDirectoryIdEntryKey($key, $id, $fields)
+> \Planfix\Model\InlineResponse20031 getDirectoryIdEntryKey($id, $key, $fields)
 
 Get directory entry
 
@@ -200,12 +201,12 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
+$id = "id_example"; // string | Directory identifier
 $key = 56; // int | Key of the directory entry
-$id = "id_example"; // string | Directory ID
-$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited
+$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* directory, key, parentKey, archived, isGroup
 
 try {
-    $result = $apiInstance->getDirectoryIdEntryKey($key, $id, $fields);
+    $result = $apiInstance->getDirectoryIdEntryKey($id, $key, $fields);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->getDirectoryIdEntryKey: ', $e->getMessage(), PHP_EOL;
@@ -217,13 +218,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **string**| Directory identifier |
  **key** | **int**| Key of the directory entry |
- **id** | **string**| Directory ID |
- **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited | [optional]
+ **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* directory, key, parentKey, archived, isGroup | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
+[**\Planfix\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
 
 ### Authorization
 
@@ -237,7 +238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getListDirectories**
-> \Planfix\Model\InlineResponse20023 getListDirectories($body)
+> \Planfix\Model\InlineResponse20030 getListDirectories($body)
 
 Get list of directories
 
@@ -277,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\Planfix\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
 
 ### Authorization
 
@@ -291,7 +292,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postAddDirectoryEntry**
-> postAddDirectoryEntry($id, $body)
+> postAddDirectoryEntry($id, $body, $idempotencyKey)
 
 Add directory entry
 
@@ -312,11 +313,12 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Directory ID
+$id = 56; // int | Directory identifier
 $body = new \Planfix\Model\DirectoryEntryRequest(); // \Planfix\Model\DirectoryEntryRequest | 
+$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
 
 try {
-    $apiInstance->postAddDirectoryEntry($id, $body);
+    $apiInstance->postAddDirectoryEntry($id, $body, $idempotencyKey);
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->postAddDirectoryEntry: ', $e->getMessage(), PHP_EOL;
 }
@@ -327,8 +329,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Directory ID |
+ **id** | **int**| Directory identifier |
  **body** | [**\Planfix\Model\DirectoryEntryRequest**](../Model/DirectoryEntryRequest.md)|  | [optional]
+ **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
 
 ### Return type
 
@@ -345,8 +348,62 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **postDirectoryEntriesFilters**
+> \Planfix\Model\InlineResponse2007 postDirectoryEntriesFilters($id)
+
+Get list directory entries filters
+
+This method lets you get list directory entries filters
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: rest_auth
+    $config = Planfix\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Planfix\Api\DirectoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | Directory identifier
+
+try {
+    $result = $apiInstance->postDirectoryEntriesFilters($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DirectoryApi->postDirectoryEntriesFilters: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Directory identifier |
+
+### Return type
+
+[**\Planfix\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+
+### Authorization
+
+[rest_auth](../../README.md#rest_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **postListDirectoryEntries**
-> \Planfix\Model\InlineResponse20025 postListDirectoryEntries($id, $body)
+> \Planfix\Model\InlineResponse20032 postListDirectoryEntries($id, $body)
 
 Get list of directory entries
 
@@ -367,7 +424,7 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | Directory ID
+$id = "id_example"; // string | Directory identifier
 $body = new \Planfix\Model\EntryListBody1(); // \Planfix\Model\EntryListBody1 | 
 
 try {
@@ -383,12 +440,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Directory ID |
+ **id** | **string**| Directory identifier |
  **body** | [**\Planfix\Model\EntryListBody1**](../Model/EntryListBody1.md)|  | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\Planfix\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
 
 ### Authorization
 
@@ -402,7 +459,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUpdateDirectoryEntry**
-> postUpdateDirectoryEntry($key, $id, $body)
+> postUpdateDirectoryEntry($key, $id, $body, $silent)
 
 Update directory entry
 
@@ -424,11 +481,12 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     $config
 );
 $key = 56; // int | Key of the directory entry
-$id = "id_example"; // string | Directory ID
+$id = "id_example"; // string | Directory identifier
 $body = new \Planfix\Model\DirectoryEntryRequest(); // \Planfix\Model\DirectoryEntryRequest | 
+$silent = false; // bool | Silent mode
 
 try {
-    $apiInstance->postUpdateDirectoryEntry($key, $id, $body);
+    $apiInstance->postUpdateDirectoryEntry($key, $id, $body, $silent);
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->postUpdateDirectoryEntry: ', $e->getMessage(), PHP_EOL;
 }
@@ -440,8 +498,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **int**| Key of the directory entry |
- **id** | **string**| Directory ID |
+ **id** | **string**| Directory identifier |
  **body** | [**\Planfix\Model\DirectoryEntryRequest**](../Model/DirectoryEntryRequest.md)|  | [optional]
+ **silent** | **bool**| Silent mode | [optional] [default to false]
 
 ### Return type
 

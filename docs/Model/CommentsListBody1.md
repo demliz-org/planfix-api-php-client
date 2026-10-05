@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **pageSize** | **int** | Size of requested list | [optional] [default to 100]
 **fields** | **string** | Fields returned - names, comma-delimited | [optional] 
 **typeList** | **string** |  | [optional] 
+**resultOrder** | [**\Planfix\Model\ContactidcommentslistResultOrder[]**](ContactidcommentslistResultOrder.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

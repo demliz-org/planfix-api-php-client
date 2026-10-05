@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sourceId** | **string** |  | [optional] 
+**silent** | **bool** | Silent mode | [optional] [default to false]
+**sourceId** | **string** | Unique identifier of the third-party application or system. | [optional] 
 **contactTemplateId** | **int** |  | [optional] 
 **companyTemplateId** | **int** |  | [optional] 
 **optionImportDuplicate** | **string** | Enum: ignore, update, none | [optional] 

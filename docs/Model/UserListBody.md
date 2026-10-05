@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **onlyActive** | **bool** | Flag for retrieving only active employees | [optional] [default to false]
 **prefixedId** | **bool** | Flag for retrieving id with a prefix | [optional] 
 **fields** | **string** | Fields returned - custom field identifiers, system field names, comma-delimited | [optional] 
-**sourceId** | **string** | Unique identifier of external application | [optional] 
+**sourceId** | **string** | Unique identifier of the third-party application or system. | [optional] 
 **filters** | [**\Planfix\Model\ComplexUserFilter[]**](ComplexUserFilter.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

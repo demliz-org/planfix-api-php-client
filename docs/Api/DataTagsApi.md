@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**getDataTags**](DataTagsApi.md#getdatatags) | **POST** /datatag/list | Get data tags
 [**getDatatagEntryKey**](DataTagsApi.md#getdatatagentrykey) | **GET** /datatag/entry/{key} | Get data tag entry
 [**getDatatagId**](DataTagsApi.md#getdatatagid) | **GET** /datatag/{id} | Get data tag by identifier
-[**postListDataTagEntrys**](DataTagsApi.md#postlistdatatagentrys) | **POST** /datatag/{id}/entry/list | Get list of data tag entries
+[**postListDataTagEntries**](DataTagsApi.md#postlistdatatagentries) | **POST** /datatag/{id}/entry/list | Get list of data tag entries
 [**postUpdateDataTagEntry**](DataTagsApi.md#postupdatedatatagentry) | **POST** /datatag/entry/{key} | Update data tag entry
 
 # **deleteDatatagEntryKey**
@@ -65,7 +65,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDataTags**
-> \Planfix\Model\InlineResponse20011 getDataTags($body)
+> \Planfix\Model\InlineResponse20017 getDataTags($body)
 
 Get data tags
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\Planfix\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
 
 ### Authorization
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDatatagEntryKey**
-> \Planfix\Model\InlineResponse20012 getDatatagEntryKey($key, $fields)
+> \Planfix\Model\InlineResponse20018 getDatatagEntryKey($key, $fields)
 
 Get data tag entry
 
@@ -141,7 +141,7 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     $config
 );
 $key = 56; // int | Key of the data tag entry
-$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited
+$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* dataTag, key, task, contact, commentId
 
 try {
     $result = $apiInstance->getDatatagEntryKey($key, $fields);
@@ -157,11 +157,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **int**| Key of the data tag entry |
- **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited | [optional]
+ **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* dataTag, key, task, contact, commentId | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\Planfix\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
 
 ### Authorization
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDatatagId**
-> \Planfix\Model\InlineResponse20010 getDatatagId($id, $fields)
+> \Planfix\Model\InlineResponse20016 getDatatagId($id, $fields)
 
 Get data tag by identifier
 
@@ -196,8 +196,8 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Data tag ID
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited
+$id = 56; // int | Data tag identifier
+$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* id, name, group, fields
 
 try {
     $result = $apiInstance->getDatatagId($id, $fields);
@@ -212,12 +212,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Data tag ID |
- **fields** | **string**| Fields returned - system field names, comma-delimited | [optional]
+ **id** | **int**| Data tag identifier |
+ **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, group, fields | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\Planfix\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
 
 ### Authorization
 
@@ -230,8 +230,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postListDataTagEntrys**
-> \Planfix\Model\InlineResponse20013 postListDataTagEntrys($id, $body)
+# **postListDataTagEntries**
+> \Planfix\Model\InlineResponse20019 postListDataTagEntries($id, $body)
 
 Get list of data tag entries
 
@@ -252,14 +252,14 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Identifier of requested data tag
+$id = 56; // int | Identifier of data tag
 $body = new \Planfix\Model\EntryListBody(); // \Planfix\Model\EntryListBody | 
 
 try {
-    $result = $apiInstance->postListDataTagEntrys($id, $body);
+    $result = $apiInstance->postListDataTagEntries($id, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DataTagsApi->postListDataTagEntrys: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DataTagsApi->postListDataTagEntries: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -268,12 +268,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Identifier of requested data tag |
+ **id** | **int**| Identifier of data tag |
  **body** | [**\Planfix\Model\EntryListBody**](../Model/EntryListBody.md)|  | [optional]
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\Planfix\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUpdateDataTagEntry**
-> postUpdateDataTagEntry($key, $body)
+> postUpdateDataTagEntry($key, $body, $silent)
 
 Update data tag entry
 
@@ -310,9 +310,10 @@ $apiInstance = new Planfix\Api\DataTagsApi(
 );
 $key = 56; // int | Key of the data tag entry
 $body = new \Planfix\Model\DataTagEntryUpdateRequest(); // \Planfix\Model\DataTagEntryUpdateRequest | 
+$silent = false; // bool | Silent mode
 
 try {
-    $apiInstance->postUpdateDataTagEntry($key, $body);
+    $apiInstance->postUpdateDataTagEntry($key, $body, $silent);
 } catch (Exception $e) {
     echo 'Exception when calling DataTagsApi->postUpdateDataTagEntry: ', $e->getMessage(), PHP_EOL;
 }
@@ -325,6 +326,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **int**| Key of the data tag entry |
  **body** | [**\Planfix\Model\DataTagEntryUpdateRequest**](../Model/DataTagEntryUpdateRequest.md)|  | [optional]
+ **silent** | **bool**| Silent mode | [optional] [default to false]
 
 ### Return type
 
