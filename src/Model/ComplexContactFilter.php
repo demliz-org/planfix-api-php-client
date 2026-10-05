@@ -59,7 +59,7 @@ class ComplexContactFilter implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'float',
 'operator' => 'string',
-'value' => 'AnyOfComplexContactFilterValue',
+'value' => '',
 'field' => 'int',
 'subfilter' => '\Planfix\Model\ComplexCommentFilterSubfilter'    ];
 
@@ -441,7 +441,7 @@ self::OPERATOR_LT,        ];
     /**
      * Gets value
      *
-     * @return AnyOfComplexContactFilterValue
+     * @return 
      */
     public function getValue()
     {
@@ -451,7 +451,7 @@ self::OPERATOR_LT,        ];
     /**
      * Sets value
      *
-     * @param AnyOfComplexContactFilterValue $value Filter value. The value format depends on the filter type. For filter types 4152 and 4153, specify a custom field ID or a system field name, for example `phones`.
+     * @param  $value Filter value. The value format depends on the filter type. For filter types 4152 and 4153, specify a custom field ID or a system field name, for example `phones`.
      *
      * @return $this
      */

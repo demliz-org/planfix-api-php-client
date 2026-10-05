@@ -206,9 +206,9 @@ Class | Method | HTTP request | Description
 *EmployeeApi* | [**postUser**](docs/Api/EmployeeApi.md#postuser) | **POST** /user/ | Create employee
 *EmployeeApi* | [**postUserConvertToContact**](docs/Api/EmployeeApi.md#postuserconverttocontact) | **POST** /user/convert-to-contact/ | Convert employee to contact
 *EmployeeApi* | [**postUserId**](docs/Api/EmployeeApi.md#postuserid) | **POST** /user/{id} | Update employee by number
-*FileApi* | [**attachFileToContact**](docs/Api/FileApi.md#attachfiletocontact) | **POST** /file/{id}/attach/contact | Attach file to contact
-*FileApi* | [**attachFileToProject**](docs/Api/FileApi.md#attachfiletoproject) | **POST** /file/{id}/attach/project | Attach file to project
-*FileApi* | [**attachFileToTask**](docs/Api/FileApi.md#attachfiletotask) | **POST** /file/{id}/attach/task | Attach file to task
+*FileApi* | [**attachFileToContact**](docs/Api/FileApi.md#attachfiletocontact) | **POST** /file/{fileId}/attach/contact | Attach file to contact
+*FileApi* | [**attachFileToProject**](docs/Api/FileApi.md#attachfiletoproject) | **POST** /file/{fileId}/attach/project | Attach file to project
+*FileApi* | [**attachFileToTask**](docs/Api/FileApi.md#attachfiletotask) | **POST** /file/{fileId}/attach/task | Attach file to task
 *FileApi* | [**deleteFileId**](docs/Api/FileApi.md#deletefileid) | **DELETE** /file/{id} | Delete file
 *FileApi* | [**getFileId**](docs/Api/FileApi.md#getfileid) | **GET** /file/{id} | Get file by identifier
 *FileApi* | [**getFileIdDownload**](docs/Api/FileApi.md#getfileiddownload) | **GET** /file/{id}/download | Download file
@@ -409,13 +409,6 @@ Class | Method | HTTP request | Description
  - [AllOfUserResponsePosition](docs/Model/AllOfUserResponsePosition.md)
  - [AllOfUserResponseTemporaryReplacement](docs/Model/AllOfUserResponseTemporaryReplacement.md)
  - [AllOfUserResponseWorkspace](docs/Model/AllOfUserResponseWorkspace.md)
- - [AnyOfComplexCommentFilterValue](docs/Model/AnyOfComplexCommentFilterValue.md)
- - [AnyOfComplexContactFilterValue](docs/Model/AnyOfComplexContactFilterValue.md)
- - [AnyOfComplexDataTagFilterValue](docs/Model/AnyOfComplexDataTagFilterValue.md)
- - [AnyOfComplexDirectoryFilterValue](docs/Model/AnyOfComplexDirectoryFilterValue.md)
- - [AnyOfComplexProjectFilterValue](docs/Model/AnyOfComplexProjectFilterValue.md)
- - [AnyOfComplexTaskFilterValue](docs/Model/AnyOfComplexTaskFilterValue.md)
- - [AnyOfComplexUserFilterValue](docs/Model/AnyOfComplexUserFilterValue.md)
  - [AnyOfTelegramWebhookSettingsRequest](docs/Model/AnyOfTelegramWebhookSettingsRequest.md)
  - [ApiResponseError](docs/Model/ApiResponseError.md)
  - [BaseEntity](docs/Model/BaseEntity.md)

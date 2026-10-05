@@ -59,7 +59,7 @@ class ComplexCommentFilter implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'float',
 'operator' => 'string',
-'value' => 'AnyOfComplexCommentFilterValue',
+'value' => '',
 'field' => 'int',
 'subfilter' => '\Planfix\Model\ComplexCommentFilterSubfilter'    ];
 
@@ -345,7 +345,7 @@ self::OPERATOR_LT,        ];
     /**
      * Gets value
      *
-     * @return AnyOfComplexCommentFilterValue
+     * @return 
      */
     public function getValue()
     {
@@ -355,7 +355,7 @@ self::OPERATOR_LT,        ];
     /**
      * Sets value
      *
-     * @param AnyOfComplexCommentFilterValue $value Filter value. The value format depends on the filter type.
+     * @param  $value Filter value. The value format depends on the filter type.
      *
      * @return $this
      */

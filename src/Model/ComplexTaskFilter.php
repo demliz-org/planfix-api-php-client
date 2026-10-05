@@ -59,7 +59,7 @@ class ComplexTaskFilter implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'float',
 'operator' => 'string',
-'value' => 'AnyOfComplexTaskFilterValue',
+'value' => '',
 'field' => 'int',
 'subfilter' => '\Planfix\Model\ComplexCommentFilterSubfilter'    ];
 
@@ -469,7 +469,7 @@ self::OPERATOR_LT,        ];
     /**
      * Gets value
      *
-     * @return AnyOfComplexTaskFilterValue
+     * @return 
      */
     public function getValue()
     {
@@ -479,7 +479,7 @@ self::OPERATOR_LT,        ];
     /**
      * Sets value
      *
-     * @param AnyOfComplexTaskFilterValue $value Filter value. The value format depends on the filter type. For filter types 152 and 153, specify a custom field ID or a system field name, for example `description`.
+     * @param  $value Filter value. The value format depends on the filter type. For filter types 152 and 153, specify a custom field ID or a system field name, for example `description`.
      *
      * @return $this
      */

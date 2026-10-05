@@ -4,9 +4,9 @@ All URIs are relative to *https://your-account.planfix.com/rest*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attachFileToContact**](FileApi.md#attachfiletocontact) | **POST** /file/{id}/attach/contact | Attach file to contact
-[**attachFileToProject**](FileApi.md#attachfiletoproject) | **POST** /file/{id}/attach/project | Attach file to project
-[**attachFileToTask**](FileApi.md#attachfiletotask) | **POST** /file/{id}/attach/task | Attach file to task
+[**attachFileToContact**](FileApi.md#attachfiletocontact) | **POST** /file/{fileId}/attach/contact | Attach file to contact
+[**attachFileToProject**](FileApi.md#attachfiletoproject) | **POST** /file/{fileId}/attach/project | Attach file to project
+[**attachFileToTask**](FileApi.md#attachfiletotask) | **POST** /file/{fileId}/attach/task | Attach file to task
 [**deleteFileId**](FileApi.md#deletefileid) | **DELETE** /file/{id} | Delete file
 [**getFileId**](FileApi.md#getfileid) | **GET** /file/{id} | Get file by identifier
 [**getFileIdDownload**](FileApi.md#getfileiddownload) | **GET** /file/{id}/download | Download file
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**postFileUploadByUrl**](FileApi.md#postfileuploadbyurl) | **POST** /file/from-url/ | Upload file by link
 
 # **attachFileToContact**
-> \Planfix\Model\InlineResponse20021 attachFileToContact($id, $id, $idempotencyKey)
+> \Planfix\Model\InlineResponse20021 attachFileToContact($fileId, $id, $idempotencyKey)
 
 Attach file to contact
 
@@ -36,12 +36,12 @@ $apiInstance = new Planfix\Api\FileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | File identifier
+$fileId = 56; // int | File identifier
 $id = 56; // int | Number of contact
 $idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
 
 try {
-    $result = $apiInstance->attachFileToContact($id, $id, $idempotencyKey);
+    $result = $apiInstance->attachFileToContact($fileId, $id, $idempotencyKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->attachFileToContact: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +53,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| File identifier |
+ **fileId** | **int**| File identifier |
  **id** | **int**| Number of contact |
  **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **attachFileToProject**
-> \Planfix\Model\InlineResponse20021 attachFileToProject($id, $id, $idempotencyKey)
+> \Planfix\Model\InlineResponse20021 attachFileToProject($fileId, $id, $idempotencyKey)
 
 Attach file to project
 
@@ -94,12 +94,12 @@ $apiInstance = new Planfix\Api\FileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | File identifier
+$fileId = 56; // int | File identifier
 $id = 56; // int | Number of project
 $idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
 
 try {
-    $result = $apiInstance->attachFileToProject($id, $id, $idempotencyKey);
+    $result = $apiInstance->attachFileToProject($fileId, $id, $idempotencyKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->attachFileToProject: ', $e->getMessage(), PHP_EOL;
@@ -111,7 +111,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| File identifier |
+ **fileId** | **int**| File identifier |
  **id** | **int**| Number of project |
  **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **attachFileToTask**
-> \Planfix\Model\InlineResponse20021 attachFileToTask($id, $id, $idempotencyKey)
+> \Planfix\Model\InlineResponse20021 attachFileToTask($fileId, $id, $idempotencyKey)
 
 Attach file to task
 
@@ -152,12 +152,12 @@ $apiInstance = new Planfix\Api\FileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | File identifier
+$fileId = 56; // int | File identifier
 $id = 56; // int | Number of task
 $idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
 
 try {
-    $result = $apiInstance->attachFileToTask($id, $id, $idempotencyKey);
+    $result = $apiInstance->attachFileToTask($fileId, $id, $idempotencyKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->attachFileToTask: ', $e->getMessage(), PHP_EOL;
@@ -169,7 +169,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| File identifier |
+ **fileId** | **int**| File identifier |
  **id** | **int**| Number of task |
  **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
 

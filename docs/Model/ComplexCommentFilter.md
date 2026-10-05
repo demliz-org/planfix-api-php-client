@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **float** | Numeric identifier of the comment filter type. | 
 **operator** | **string** | Filter comparison operator. | 
-**value** | [**AnyOfComplexCommentFilterValue**](AnyOfComplexCommentFilterValue.md) | Filter value. The value format depends on the filter type. | 
+**value** | [****](.md) | Filter value. The value format depends on the filter type. | 
 **field** | **int** | Custom field ID used for custom field filters. For data tag entry filters, this is the data tag field ID; for directory entry filters, this is the directory field ID. | [optional] 
 **subfilter** | [**\Planfix\Model\ComplexCommentFilterSubfilter**](ComplexCommentFilterSubfilter.md) |  | [optional] 
 

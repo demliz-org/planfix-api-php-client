@@ -59,7 +59,7 @@ class ComplexUserFilter implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'float',
 'operator' => 'string',
-'value' => 'AnyOfComplexUserFilterValue',
+'value' => '',
 'field' => 'int'    ];
 
     /**
@@ -399,7 +399,7 @@ self::OPERATOR_LT,        ];
     /**
      * Gets value
      *
-     * @return AnyOfComplexUserFilterValue
+     * @return 
      */
     public function getValue()
     {
@@ -409,7 +409,7 @@ self::OPERATOR_LT,        ];
     /**
      * Sets value
      *
-     * @param AnyOfComplexUserFilterValue $value Filter value. The value format depends on the filter type.
+     * @param  $value Filter value. The value format depends on the filter type.
      *
      * @return $this
      */

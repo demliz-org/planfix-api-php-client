@@ -91,7 +91,7 @@ class FileApi
      *
      * Attach file to contact
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of contact (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
@@ -99,9 +99,9 @@ class FileApi
      * @throws \InvalidArgumentException
      * @return \Planfix\Model\InlineResponse20021
      */
-    public function attachFileToContact($id, $id, $idempotencyKey = null)
+    public function attachFileToContact($fileId, $id, $idempotencyKey = null)
     {
-        list($response) = $this->attachFileToContactWithHttpInfo($id, $id, $idempotencyKey);
+        list($response) = $this->attachFileToContactWithHttpInfo($fileId, $id, $idempotencyKey);
         return $response;
     }
 
@@ -110,7 +110,7 @@ class FileApi
      *
      * Attach file to contact
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of contact (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
@@ -118,10 +118,10 @@ class FileApi
      * @throws \InvalidArgumentException
      * @return array of \Planfix\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
      */
-    public function attachFileToContactWithHttpInfo($id, $id, $idempotencyKey = null)
+    public function attachFileToContactWithHttpInfo($fileId, $id, $idempotencyKey = null)
     {
         $returnType = '\Planfix\Model\InlineResponse20021';
-        $request = $this->attachFileToContactRequest($id, $id, $idempotencyKey);
+        $request = $this->attachFileToContactRequest($fileId, $id, $idempotencyKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -195,16 +195,16 @@ class FileApi
      *
      * Attach file to contact
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of contact (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachFileToContactAsync($id, $id, $idempotencyKey = null)
+    public function attachFileToContactAsync($fileId, $id, $idempotencyKey = null)
     {
-        return $this->attachFileToContactAsyncWithHttpInfo($id, $id, $idempotencyKey)
+        return $this->attachFileToContactAsyncWithHttpInfo($fileId, $id, $idempotencyKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -217,17 +217,17 @@ class FileApi
      *
      * Attach file to contact
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of contact (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachFileToContactAsyncWithHttpInfo($id, $id, $idempotencyKey = null)
+    public function attachFileToContactAsyncWithHttpInfo($fileId, $id, $idempotencyKey = null)
     {
         $returnType = '\Planfix\Model\InlineResponse20021';
-        $request = $this->attachFileToContactRequest($id, $id, $idempotencyKey);
+        $request = $this->attachFileToContactRequest($fileId, $id, $idempotencyKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -269,19 +269,19 @@ class FileApi
     /**
      * Create request for operation 'attachFileToContact'
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of contact (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function attachFileToContactRequest($id, $id, $idempotencyKey = null)
+    protected function attachFileToContactRequest($fileId, $id, $idempotencyKey = null)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'fileId' is set
+        if ($fileId === null || (is_array($fileId) && count($fileId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling attachFileToContact'
+                'Missing the required parameter $fileId when calling attachFileToContact'
             );
         }
         // verify the required parameter 'id' is set
@@ -291,7 +291,7 @@ class FileApi
             );
         }
 
-        $resourcePath = '/file/{id}/attach/contact';
+        $resourcePath = '/file/{fileId}/attach/contact';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -308,10 +308,10 @@ class FileApi
         }
 
         // path params
-        if ($id !== null) {
+        if ($fileId !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'fileId' . '}',
+                ObjectSerializer::toPathValue($fileId),
                 $resourcePath
             );
         }
@@ -389,7 +389,7 @@ class FileApi
      *
      * Attach file to project
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of project (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
@@ -397,9 +397,9 @@ class FileApi
      * @throws \InvalidArgumentException
      * @return \Planfix\Model\InlineResponse20021
      */
-    public function attachFileToProject($id, $id, $idempotencyKey = null)
+    public function attachFileToProject($fileId, $id, $idempotencyKey = null)
     {
-        list($response) = $this->attachFileToProjectWithHttpInfo($id, $id, $idempotencyKey);
+        list($response) = $this->attachFileToProjectWithHttpInfo($fileId, $id, $idempotencyKey);
         return $response;
     }
 
@@ -408,7 +408,7 @@ class FileApi
      *
      * Attach file to project
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of project (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
@@ -416,10 +416,10 @@ class FileApi
      * @throws \InvalidArgumentException
      * @return array of \Planfix\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
      */
-    public function attachFileToProjectWithHttpInfo($id, $id, $idempotencyKey = null)
+    public function attachFileToProjectWithHttpInfo($fileId, $id, $idempotencyKey = null)
     {
         $returnType = '\Planfix\Model\InlineResponse20021';
-        $request = $this->attachFileToProjectRequest($id, $id, $idempotencyKey);
+        $request = $this->attachFileToProjectRequest($fileId, $id, $idempotencyKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -493,16 +493,16 @@ class FileApi
      *
      * Attach file to project
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of project (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachFileToProjectAsync($id, $id, $idempotencyKey = null)
+    public function attachFileToProjectAsync($fileId, $id, $idempotencyKey = null)
     {
-        return $this->attachFileToProjectAsyncWithHttpInfo($id, $id, $idempotencyKey)
+        return $this->attachFileToProjectAsyncWithHttpInfo($fileId, $id, $idempotencyKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -515,17 +515,17 @@ class FileApi
      *
      * Attach file to project
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of project (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachFileToProjectAsyncWithHttpInfo($id, $id, $idempotencyKey = null)
+    public function attachFileToProjectAsyncWithHttpInfo($fileId, $id, $idempotencyKey = null)
     {
         $returnType = '\Planfix\Model\InlineResponse20021';
-        $request = $this->attachFileToProjectRequest($id, $id, $idempotencyKey);
+        $request = $this->attachFileToProjectRequest($fileId, $id, $idempotencyKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -567,19 +567,19 @@ class FileApi
     /**
      * Create request for operation 'attachFileToProject'
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of project (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function attachFileToProjectRequest($id, $id, $idempotencyKey = null)
+    protected function attachFileToProjectRequest($fileId, $id, $idempotencyKey = null)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'fileId' is set
+        if ($fileId === null || (is_array($fileId) && count($fileId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling attachFileToProject'
+                'Missing the required parameter $fileId when calling attachFileToProject'
             );
         }
         // verify the required parameter 'id' is set
@@ -589,7 +589,7 @@ class FileApi
             );
         }
 
-        $resourcePath = '/file/{id}/attach/project';
+        $resourcePath = '/file/{fileId}/attach/project';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -606,10 +606,10 @@ class FileApi
         }
 
         // path params
-        if ($id !== null) {
+        if ($fileId !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'fileId' . '}',
+                ObjectSerializer::toPathValue($fileId),
                 $resourcePath
             );
         }
@@ -687,7 +687,7 @@ class FileApi
      *
      * Attach file to task
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of task (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
@@ -695,9 +695,9 @@ class FileApi
      * @throws \InvalidArgumentException
      * @return \Planfix\Model\InlineResponse20021
      */
-    public function attachFileToTask($id, $id, $idempotencyKey = null)
+    public function attachFileToTask($fileId, $id, $idempotencyKey = null)
     {
-        list($response) = $this->attachFileToTaskWithHttpInfo($id, $id, $idempotencyKey);
+        list($response) = $this->attachFileToTaskWithHttpInfo($fileId, $id, $idempotencyKey);
         return $response;
     }
 
@@ -706,7 +706,7 @@ class FileApi
      *
      * Attach file to task
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of task (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
@@ -714,10 +714,10 @@ class FileApi
      * @throws \InvalidArgumentException
      * @return array of \Planfix\Model\InlineResponse20021, HTTP status code, HTTP response headers (array of strings)
      */
-    public function attachFileToTaskWithHttpInfo($id, $id, $idempotencyKey = null)
+    public function attachFileToTaskWithHttpInfo($fileId, $id, $idempotencyKey = null)
     {
         $returnType = '\Planfix\Model\InlineResponse20021';
-        $request = $this->attachFileToTaskRequest($id, $id, $idempotencyKey);
+        $request = $this->attachFileToTaskRequest($fileId, $id, $idempotencyKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -791,16 +791,16 @@ class FileApi
      *
      * Attach file to task
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of task (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachFileToTaskAsync($id, $id, $idempotencyKey = null)
+    public function attachFileToTaskAsync($fileId, $id, $idempotencyKey = null)
     {
-        return $this->attachFileToTaskAsyncWithHttpInfo($id, $id, $idempotencyKey)
+        return $this->attachFileToTaskAsyncWithHttpInfo($fileId, $id, $idempotencyKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -813,17 +813,17 @@ class FileApi
      *
      * Attach file to task
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of task (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachFileToTaskAsyncWithHttpInfo($id, $id, $idempotencyKey = null)
+    public function attachFileToTaskAsyncWithHttpInfo($fileId, $id, $idempotencyKey = null)
     {
         $returnType = '\Planfix\Model\InlineResponse20021';
-        $request = $this->attachFileToTaskRequest($id, $id, $idempotencyKey);
+        $request = $this->attachFileToTaskRequest($fileId, $id, $idempotencyKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -865,19 +865,19 @@ class FileApi
     /**
      * Create request for operation 'attachFileToTask'
      *
-     * @param  int $id File identifier (required)
+     * @param  int $fileId File identifier (required)
      * @param  int $id Number of task (required)
      * @param  string $idempotencyKey Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function attachFileToTaskRequest($id, $id, $idempotencyKey = null)
+    protected function attachFileToTaskRequest($fileId, $id, $idempotencyKey = null)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'fileId' is set
+        if ($fileId === null || (is_array($fileId) && count($fileId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling attachFileToTask'
+                'Missing the required parameter $fileId when calling attachFileToTask'
             );
         }
         // verify the required parameter 'id' is set
@@ -887,7 +887,7 @@ class FileApi
             );
         }
 
-        $resourcePath = '/file/{id}/attach/task';
+        $resourcePath = '/file/{fileId}/attach/task';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -904,10 +904,10 @@ class FileApi
         }
 
         // path params
-        if ($id !== null) {
+        if ($fileId !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'fileId' . '}',
+                ObjectSerializer::toPathValue($fileId),
                 $resourcePath
             );
         }

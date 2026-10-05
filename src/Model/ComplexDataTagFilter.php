@@ -60,7 +60,7 @@ class ComplexDataTagFilter implements ModelInterface, ArrayAccess
         'type' => 'float',
 'field' => 'int',
 'operator' => 'string',
-'value' => 'AnyOfComplexDataTagFilterValue'    ];
+'value' => ''    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -386,7 +386,7 @@ self::OPERATOR_LT,        ];
     /**
      * Gets value
      *
-     * @return AnyOfComplexDataTagFilterValue
+     * @return 
      */
     public function getValue()
     {
@@ -396,7 +396,7 @@ self::OPERATOR_LT,        ];
     /**
      * Sets value
      *
-     * @param AnyOfComplexDataTagFilterValue $value Filter value. The value format depends on the filter type.
+     * @param  $value Filter value. The value format depends on the filter type.
      *
      * @return $this
      */
