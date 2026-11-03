@@ -1,0 +1,13 @@
+--- a/api.mustache
++++ b/api.mustache
+@@ -273,6 +273,10 @@
+                         $response,
+                     );{{/isRange}}
+             {{/dataType}}
++            {{#is2xx}}{{^dataType}}{{^isRange}}
++                case {{code}}:
++                    return [null, $statusCode, $response->getHeaders()];
++            {{/isRange}}{{/dataType}}{{/is2xx}}
+             {{#-last}}
+             }
+             {{/-last}}

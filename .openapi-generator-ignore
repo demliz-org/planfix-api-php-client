@@ -1,0 +1,9 @@
+# Files and folders that survive regeneration.
+.gitignore
+.openapi-generator-ignore
+composer.json
+README.md
+
+# Files and folders that were deliverately removed and should not be recreated.
+.travis.yml
+git_push.sh

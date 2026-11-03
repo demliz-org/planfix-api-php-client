@@ -2,11 +2,14 @@
    "variableNamingConvention": "camelCase",
    "invokerPackage": "Planfix",
    "packageName": "Planfix",
-   "packagePath": "./",
    "srcBasePath": "src",
    "gitUserId": "demliz-org",
    "gitRepoId": "planfix-api-php-client",
-   "composerVendorName": "demliz",
-   "composerProjectName": "planfix-api-client",
-   "artifactVersion": "1.7.7"
+   "composerPackageName": "demliz/planfix-api-client",
+   "artifactVersion": "2.0.0",
+   "licenseName": "proprietary",
+   "library": "guzzle",
+   "prependFormOrBodyParameters": false,
+   "sortParamsByRequiredFlag": true,
+   "hideGenerationTimestamp": true
 }
