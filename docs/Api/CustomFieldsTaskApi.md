@@ -1,29 +1,37 @@
 # Planfix\CustomFieldsTaskApi
 
-All URIs are relative to *https://your-account.planfix.com/rest*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getCustomfieldSetsTask**](CustomFieldsTaskApi.md#getcustomfieldsetstask) | **GET** /customfield/group/task | Get a list of a custom task fields set
-[**getCustomfieldTask**](CustomFieldsTaskApi.md#getcustomfieldtask) | **GET** /customfield/task | Get list of custom task fields
-[**getCustomfieldsForTask**](CustomFieldsTaskApi.md#getcustomfieldsfortask) | **GET** /customfield/task/{id} | Get list of custom fields for task
-[**postCustomfieldSetTaskAdd**](CustomFieldsTaskApi.md#postcustomfieldsettaskadd) | **POST** /customfield/group/task/ | Create a custom fields set for task
-[**postCustomfieldTaskAdd**](CustomFieldsTaskApi.md#postcustomfieldtaskadd) | **POST** /customfield/task/ | Create a custom field for task
 
-# **getCustomfieldSetsTask**
-> \Planfix\Model\InlineResponse20035 getCustomfieldSetsTask()
+All URIs are relative to https://your-account.planfix.com/rest, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getCustomfieldSetsTask()**](CustomFieldsTaskApi.md#getCustomfieldSetsTask) | **GET** /customfield/group/task | Get a list of a custom task fields set |
+| [**getCustomfieldTask()**](CustomFieldsTaskApi.md#getCustomfieldTask) | **GET** /customfield/task | Get list of custom task fields |
+| [**getCustomfieldsForTask()**](CustomFieldsTaskApi.md#getCustomfieldsForTask) | **GET** /customfield/task/{id} | Get list of custom fields for task |
+| [**postCustomfieldSetTaskAdd()**](CustomFieldsTaskApi.md#postCustomfieldSetTaskAdd) | **POST** /customfield/group/task/ | Create a custom fields set for task |
+| [**postCustomfieldTaskAdd()**](CustomFieldsTaskApi.md#postCustomfieldTaskAdd) | **POST** /customfield/task/ | Create a custom field for task |
+
+
+## `getCustomfieldSetsTask()`
+
+```php
+getCustomfieldSetsTask(): \Planfix\Model\GetCustomfieldSetsContact200Response
+```
 
 Get a list of a custom task fields set
 
 This method lets you get a list of custom task fields sets
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
@@ -39,15 +47,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsTaskApi->getCustomfieldSetsTask: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\Planfix\Model\GetCustomfieldSetsContact200Response**](../Model/GetCustomfieldSetsContact200Response.md)
 
 ### Authorization
 
@@ -55,25 +63,32 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getCustomfieldTask**
-> \Planfix\Model\InlineResponse20034 getCustomfieldTask($fields)
+## `getCustomfieldTask()`
+
+```php
+getCustomfieldTask($fields): \Planfix\Model\GetCustomfieldContact200Response
+```
 
 Get list of custom task fields
 
 This method lets you get a list of custom task fields
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
@@ -82,7 +97,7 @@ $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
+$fields = id,name,names,type; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
 
 try {
     $result = $apiInstance->getCustomfieldTask($fields);
@@ -90,18 +105,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsTaskApi->getCustomfieldTask: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\Planfix\Model\GetCustomfieldContact200Response**](../Model/GetCustomfieldContact200Response.md)
 
 ### Authorization
 
@@ -109,25 +123,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getCustomfieldsForTask**
-> \Planfix\Model\InlineResponse20034 getCustomfieldsForTask($id, $fields)
+## `getCustomfieldsForTask()`
+
+```php
+getCustomfieldsForTask($id, $fields): \Planfix\Model\GetCustomfieldContact200Response
+```
 
 Get list of custom fields for task
 
 This method lets you get a list of custom fields for task
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
@@ -136,8 +157,8 @@ $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 789; // int | Number of task
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
+$id = 56; // int | Number of task
+$fields = id,name,names,type; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
 
 try {
     $result = $apiInstance->getCustomfieldsForTask($id, $fields);
@@ -145,19 +166,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsTaskApi->getCustomfieldsForTask: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Number of task |
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Number of task | |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\Planfix\Model\GetCustomfieldContact200Response**](../Model/GetCustomfieldContact200Response.md)
 
 ### Authorization
 
@@ -165,25 +185,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postCustomfieldSetTaskAdd**
-> \Planfix\Model\InlineResponse201 postCustomfieldSetTaskAdd($body, $idempotencyKey)
+## `postCustomfieldSetTaskAdd()`
+
+```php
+postCustomfieldSetTaskAdd($idempotencyKey, $shortEntity): \Planfix\Model\PostContact201Response
+```
 
 Create a custom fields set for task
 
 This method lets you create a custom fields set for task
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
@@ -192,28 +219,27 @@ $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\ShortEntity(); // \Planfix\Model\ShortEntity | 
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$shortEntity = {"name":"My custom fields set for tasks"}; // \Planfix\Model\ShortEntity
 
 try {
-    $result = $apiInstance->postCustomfieldSetTaskAdd($body, $idempotencyKey);
+    $result = $apiInstance->postCustomfieldSetTaskAdd($idempotencyKey, $shortEntity);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsTaskApi->postCustomfieldSetTaskAdd: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\ShortEntity**](../Model/ShortEntity.md)|  | [optional]
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
+| **shortEntity** | [**\Planfix\Model\ShortEntity**](../Model/ShortEntity.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse201**](../Model/InlineResponse201.md)
+[**\Planfix\Model\PostContact201Response**](../Model/PostContact201Response.md)
 
 ### Authorization
 
@@ -221,25 +247,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postCustomfieldTaskAdd**
-> \Planfix\Model\InlineResponse201 postCustomfieldTaskAdd($body, $idempotencyKey)
+## `postCustomfieldTaskAdd()`
+
+```php
+postCustomfieldTaskAdd($idempotencyKey, $customField): \Planfix\Model\PostContact201Response
+```
 
 Create a custom field for task
 
 This method lets you create a custom field for task
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
@@ -248,28 +281,27 @@ $apiInstance = new Planfix\Api\CustomFieldsTaskApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\CustomField(); // \Planfix\Model\CustomField | 
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$customField = {"name":"Line","names":{"en":"Line","fr":"Ligne"},"type":0,"groupId":1}; // \Planfix\Model\CustomField
 
 try {
-    $result = $apiInstance->postCustomfieldTaskAdd($body, $idempotencyKey);
+    $result = $apiInstance->postCustomfieldTaskAdd($idempotencyKey, $customField);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsTaskApi->postCustomfieldTaskAdd: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\CustomField**](../Model/CustomField.md)|  | [optional]
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
+| **customField** | [**\Planfix\Model\CustomField**](../Model/CustomField.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse201**](../Model/InlineResponse201.md)
+[**\Planfix\Model\PostContact201Response**](../Model/PostContact201Response.md)
 
 ### Authorization
 
@@ -277,8 +309,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

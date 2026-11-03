@@ -1,33 +1,41 @@
 # Planfix\FileApi
 
-All URIs are relative to *https://your-account.planfix.com/rest*
+Operations with files
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**attachFileToContact**](FileApi.md#attachfiletocontact) | **POST** /file/{fileId}/attach/contact | Attach file to contact
-[**attachFileToProject**](FileApi.md#attachfiletoproject) | **POST** /file/{fileId}/attach/project | Attach file to project
-[**attachFileToTask**](FileApi.md#attachfiletotask) | **POST** /file/{fileId}/attach/task | Attach file to task
-[**deleteFileId**](FileApi.md#deletefileid) | **DELETE** /file/{id} | Delete file
-[**getFileId**](FileApi.md#getfileid) | **GET** /file/{id} | Get file by identifier
-[**getFileIdDownload**](FileApi.md#getfileiddownload) | **GET** /file/{id}/download | Download file
-[**postFileUpdate**](FileApi.md#postfileupdate) | **POST** /file/{id} | Update file
-[**postFileUpload**](FileApi.md#postfileupload) | **POST** /file/ | Upload file
-[**postFileUploadByUrl**](FileApi.md#postfileuploadbyurl) | **POST** /file/from-url/ | Upload file by link
+All URIs are relative to https://your-account.planfix.com/rest, except if the operation defines another base path.
 
-# **attachFileToContact**
-> \Planfix\Model\InlineResponse20021 attachFileToContact($fileId, $id, $idempotencyKey)
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**attachFileToContact()**](FileApi.md#attachFileToContact) | **POST** /file/{id}/attach/contact | Attach file to contact |
+| [**attachFileToProject()**](FileApi.md#attachFileToProject) | **POST** /file/{id}/attach/project | Attach file to project |
+| [**attachFileToTask()**](FileApi.md#attachFileToTask) | **POST** /file/{id}/attach/task | Attach file to task |
+| [**deleteFileId()**](FileApi.md#deleteFileId) | **DELETE** /file/{id} | Delete file |
+| [**getFileId()**](FileApi.md#getFileId) | **GET** /file/{id} | Get file by identifier |
+| [**getFileIdDownload()**](FileApi.md#getFileIdDownload) | **GET** /file/{id}/download | Download file |
+| [**postFileUpdate()**](FileApi.md#postFileUpdate) | **POST** /file/{id} | Update file |
+| [**postFileUpload()**](FileApi.md#postFileUpload) | **POST** /file/ | Upload file |
+| [**postFileUploadByUrl()**](FileApi.md#postFileUploadByUrl) | **POST** /file/from-url/ | Upload file by link |
+
+
+## `attachFileToContact()`
+
+```php
+attachFileToContact($id, $id2, $idempotencyKey): \Planfix\Model\PostFileUpdate200Response
+```
 
 Attach file to contact
 
 This method lets you attach file to target contact
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -36,30 +44,29 @@ $apiInstance = new Planfix\Api\FileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fileId = 56; // int | File identifier
-$id = 56; // int | Number of contact
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$id = 56; // int | File identifier
+$id2 = 56; // int | Number of contact
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
 
 try {
-    $result = $apiInstance->attachFileToContact($fileId, $id, $idempotencyKey);
+    $result = $apiInstance->attachFileToContact($id, $id2, $idempotencyKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->attachFileToContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **int**| File identifier |
- **id** | **int**| Number of contact |
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| File identifier | |
+| **id2** | **int**| Number of contact | |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\Planfix\Model\PostFileUpdate200Response**](../Model/PostFileUpdate200Response.md)
 
 ### Authorization
 
@@ -67,25 +74,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **attachFileToProject**
-> \Planfix\Model\InlineResponse20021 attachFileToProject($fileId, $id, $idempotencyKey)
+## `attachFileToProject()`
+
+```php
+attachFileToProject($id, $id2, $idempotencyKey): \Planfix\Model\PostFileUpdate200Response
+```
 
 Attach file to project
 
 This method lets you attach file to target project
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -94,30 +108,29 @@ $apiInstance = new Planfix\Api\FileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fileId = 56; // int | File identifier
-$id = 56; // int | Number of project
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$id = 56; // int | File identifier
+$id2 = 56; // int | Number of project
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
 
 try {
-    $result = $apiInstance->attachFileToProject($fileId, $id, $idempotencyKey);
+    $result = $apiInstance->attachFileToProject($id, $id2, $idempotencyKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->attachFileToProject: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **int**| File identifier |
- **id** | **int**| Number of project |
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| File identifier | |
+| **id2** | **int**| Number of project | |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\Planfix\Model\PostFileUpdate200Response**](../Model/PostFileUpdate200Response.md)
 
 ### Authorization
 
@@ -125,25 +138,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **attachFileToTask**
-> \Planfix\Model\InlineResponse20021 attachFileToTask($fileId, $id, $idempotencyKey)
+## `attachFileToTask()`
+
+```php
+attachFileToTask($id, $id2, $idempotencyKey): \Planfix\Model\PostFileUpdate200Response
+```
 
 Attach file to task
 
 This method lets you attach file to target task
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -152,30 +172,29 @@ $apiInstance = new Planfix\Api\FileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fileId = 56; // int | File identifier
-$id = 56; // int | Number of task
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$id = 56; // int | File identifier
+$id2 = 56; // int | Number of task
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
 
 try {
-    $result = $apiInstance->attachFileToTask($fileId, $id, $idempotencyKey);
+    $result = $apiInstance->attachFileToTask($id, $id2, $idempotencyKey);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->attachFileToTask: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **int**| File identifier |
- **id** | **int**| Number of task |
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| File identifier | |
+| **id2** | **int**| Number of task | |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\Planfix\Model\PostFileUpdate200Response**](../Model/PostFileUpdate200Response.md)
 
 ### Authorization
 
@@ -183,25 +202,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteFileId**
-> \Planfix\Model\InlineResponse20021 deleteFileId($id)
+## `deleteFileId()`
+
+```php
+deleteFileId($id): \Planfix\Model\PostFileUpdate200Response
+```
 
 Delete file
 
 This method lets you delete a file by its ID
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -218,18 +244,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->deleteFileId: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| File identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| File identifier | |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\Planfix\Model\PostFileUpdate200Response**](../Model/PostFileUpdate200Response.md)
 
 ### Authorization
 
@@ -237,25 +262,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getFileId**
-> \Planfix\Model\InlineResponse20020 getFileId($id, $fields)
+## `getFileId()`
+
+```php
+getFileId($id, $fields): \Planfix\Model\GetFileId200Response
+```
 
 Get file by identifier
 
 This method lets you get a file by its ID
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -265,7 +297,7 @@ $apiInstance = new Planfix\Api\FileApi(
     $config
 );
 $id = 56; // int | File identifier
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, size, downloadUrl, link (for online documents)
+$fields = name,size; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, size, downloadUrl, link (for online documents)
 
 try {
     $result = $apiInstance->getFileId($id, $fields);
@@ -273,19 +305,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->getFileId: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| File identifier |
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, size, downloadUrl, link (for online documents) | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| File identifier | |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, size, downloadUrl, link (for online documents) | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\Planfix\Model\GetFileId200Response**](../Model/GetFileId200Response.md)
 
 ### Authorization
 
@@ -293,25 +324,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getFileIdDownload**
-> getFileIdDownload($id)
+## `getFileIdDownload()`
+
+```php
+getFileIdDownload($id)
+```
 
 Download file
 
 This method lets you download file
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -327,14 +365,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->getFileIdDownload: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| File identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| File identifier | |
 
 ### Return type
 
@@ -346,25 +383,32 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/gzip, application/octet-stream, application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/gzip`, `application/octet-stream`, `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postFileUpdate**
-> \Planfix\Model\InlineResponse20021 postFileUpdate($id, $body)
+## `postFileUpdate()`
+
+```php
+postFileUpdate($id, $postFileUpdateRequest): \Planfix\Model\PostFileUpdate200Response
+```
 
 Update file
 
 This method lets you update a file name
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -374,27 +418,26 @@ $apiInstance = new Planfix\Api\FileApi(
     $config
 );
 $id = 56; // int | File identifier
-$body = new \Planfix\Model\FileIdBody(); // \Planfix\Model\FileIdBody | 
+$postFileUpdateRequest = {"name":"Main file - New"}; // \Planfix\Model\PostFileUpdateRequest
 
 try {
-    $result = $apiInstance->postFileUpdate($id, $body);
+    $result = $apiInstance->postFileUpdate($id, $postFileUpdateRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->postFileUpdate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| File identifier |
- **body** | [**\Planfix\Model\FileIdBody**](../Model/FileIdBody.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| File identifier | |
+| **postFileUpdateRequest** | [**\Planfix\Model\PostFileUpdateRequest**](../Model/PostFileUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\Planfix\Model\PostFileUpdate200Response**](../Model/PostFileUpdate200Response.md)
 
 ### Authorization
 
@@ -402,25 +445,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postFileUpload**
-> \Planfix\Model\InlineResponse20022 postFileUpload($file, $idempotencyKey, $targetType)
+## `postFileUpload()`
+
+```php
+postFileUpload($file, $idempotencyKey, $targetType): \Planfix\Model\PostFileUpload200Response
+```
 
 Upload file
 
 This method lets you upload file to Planfix
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -429,9 +479,9 @@ $apiInstance = new Planfix\Api\FileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$file = "file_example"; // string | 
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
-$targetType = "task"; // string | Defines the type of entity the uploaded file is associated with.
+$file = '/path/to/file.txt'; // \SplFileObject | File for upload
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$targetType = 'task'; // string | Defines the type of entity the uploaded file is associated with.
 
 try {
     $result = $apiInstance->postFileUpload($file, $idempotencyKey, $targetType);
@@ -439,20 +489,19 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->postFileUpload: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **string****string**|  | [optional]
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
- **targetType** | **string**| Defines the type of entity the uploaded file is associated with. | [optional] [default to task]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **file** | **\SplFileObject****\SplFileObject**| File for upload | |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
+| **targetType** | **string**| Defines the type of entity the uploaded file is associated with. | [optional] [default to &#39;task&#39;] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\Planfix\Model\PostFileUpload200Response**](../Model/PostFileUpload200Response.md)
 
 ### Authorization
 
@@ -460,25 +509,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postFileUploadByUrl**
-> \Planfix\Model\InlineResponse20022 postFileUploadByUrl($body, $idempotencyKey, $targetType)
+## `postFileUploadByUrl()`
+
+```php
+postFileUploadByUrl($idempotencyKey, $targetType, $fileUploadRequest): \Planfix\Model\PostFileUpload200Response
+```
 
 Upload file by link
 
 This method lets you upload a file to Planfix using a link
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\FileApi(
@@ -487,30 +543,29 @@ $apiInstance = new Planfix\Api\FileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\FileUploadRequest(); // \Planfix\Model\FileUploadRequest | 
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
-$targetType = "task"; // string | Defines the type of entity the uploaded file is associated with.
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$targetType = 'task'; // string | Defines the type of entity the uploaded file is associated with.
+$fileUploadRequest = {"name":"My upload file","url":"https://cloud.my/69582925112467.jpg"}; // \Planfix\Model\FileUploadRequest
 
 try {
-    $result = $apiInstance->postFileUploadByUrl($body, $idempotencyKey, $targetType);
+    $result = $apiInstance->postFileUploadByUrl($idempotencyKey, $targetType, $fileUploadRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->postFileUploadByUrl: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\FileUploadRequest**](../Model/FileUploadRequest.md)|  | [optional]
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
- **targetType** | **string**| Defines the type of entity the uploaded file is associated with. | [optional] [default to task]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
+| **targetType** | **string**| Defines the type of entity the uploaded file is associated with. | [optional] [default to &#39;task&#39;] |
+| **fileUploadRequest** | [**\Planfix\Model\FileUploadRequest**](../Model/FileUploadRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\Planfix\Model\PostFileUpload200Response**](../Model/PostFileUpload200Response.md)
 
 ### Authorization
 
@@ -518,8 +573,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

@@ -1,29 +1,37 @@
 # Planfix\CustomFieldsContactApi
 
-All URIs are relative to *https://your-account.planfix.com/rest*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getCustomfieldContact**](CustomFieldsContactApi.md#getcustomfieldcontact) | **GET** /customfield/contact | Get a list of a custom contact fields
-[**getCustomfieldSetsContact**](CustomFieldsContactApi.md#getcustomfieldsetscontact) | **GET** /customfield/group/contact | Get a list of a custom contact fields set
-[**getCustomfieldsForContact**](CustomFieldsContactApi.md#getcustomfieldsforcontact) | **GET** /customfield/contact/{id} | Get a list of a custom fields for contact
-[**postCustomfieldAdd**](CustomFieldsContactApi.md#postcustomfieldadd) | **POST** /customfield/contact/ | Create a custom field for contact
-[**postCustomfieldSetAdd**](CustomFieldsContactApi.md#postcustomfieldsetadd) | **POST** /customfield/group/contact/ | Create a custom fields set for contact
 
-# **getCustomfieldContact**
-> \Planfix\Model\InlineResponse20034 getCustomfieldContact($fields)
+All URIs are relative to https://your-account.planfix.com/rest, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getCustomfieldContact()**](CustomFieldsContactApi.md#getCustomfieldContact) | **GET** /customfield/contact | Get a list of a custom contact fields |
+| [**getCustomfieldSetsContact()**](CustomFieldsContactApi.md#getCustomfieldSetsContact) | **GET** /customfield/group/contact | Get a list of a custom contact fields set |
+| [**getCustomfieldsForContact()**](CustomFieldsContactApi.md#getCustomfieldsForContact) | **GET** /customfield/contact/{id} | Get a list of a custom fields for contact |
+| [**postCustomfieldAdd()**](CustomFieldsContactApi.md#postCustomfieldAdd) | **POST** /customfield/contact/ | Create a custom field for contact |
+| [**postCustomfieldSetAdd()**](CustomFieldsContactApi.md#postCustomfieldSetAdd) | **POST** /customfield/group/contact/ | Create a custom fields set for contact |
+
+
+## `getCustomfieldContact()`
+
+```php
+getCustomfieldContact($fields): \Planfix\Model\GetCustomfieldContact200Response
+```
 
 Get a list of a custom contact fields
 
 This method lets you get a list of custom contact and company fields
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsContactApi(
@@ -32,7 +40,7 @@ $apiInstance = new Planfix\Api\CustomFieldsContactApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
+$fields = id,name,names,type; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
 
 try {
     $result = $apiInstance->getCustomfieldContact($fields);
@@ -40,18 +48,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsContactApi->getCustomfieldContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\Planfix\Model\GetCustomfieldContact200Response**](../Model/GetCustomfieldContact200Response.md)
 
 ### Authorization
 
@@ -59,25 +66,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getCustomfieldSetsContact**
-> \Planfix\Model\InlineResponse20035 getCustomfieldSetsContact()
+## `getCustomfieldSetsContact()`
+
+```php
+getCustomfieldSetsContact(): \Planfix\Model\GetCustomfieldSetsContact200Response
+```
 
 Get a list of a custom contact fields set
 
 This method lets you get a list of custom contact and company fields sets
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsContactApi(
@@ -93,15 +107,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsContactApi->getCustomfieldSetsContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\Planfix\Model\GetCustomfieldSetsContact200Response**](../Model/GetCustomfieldSetsContact200Response.md)
 
 ### Authorization
 
@@ -109,25 +123,32 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getCustomfieldsForContact**
-> \Planfix\Model\InlineResponse20034 getCustomfieldsForContact($id, $fields)
+## `getCustomfieldsForContact()`
+
+```php
+getCustomfieldsForContact($id, $fields): \Planfix\Model\GetCustomfieldContact200Response
+```
 
 Get a list of a custom fields for contact
 
 This method lets you get a list of custom fields for contact or company
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsContactApi(
@@ -136,8 +157,8 @@ $apiInstance = new Planfix\Api\CustomFieldsContactApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | Number of contact
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
+$id = contact:12 OR 12; // string | Number of contact
+$fields = id,name,names,type; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors
 
 try {
     $result = $apiInstance->getCustomfieldsForContact($id, $fields);
@@ -145,19 +166,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsContactApi->getCustomfieldsForContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Number of contact |
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Number of contact | |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, names, type, objectType, groupId, directoryId, directoryFields, enumValues, listValuesColors | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\Planfix\Model\GetCustomfieldContact200Response**](../Model/GetCustomfieldContact200Response.md)
 
 ### Authorization
 
@@ -165,25 +185,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postCustomfieldAdd**
-> \Planfix\Model\InlineResponse201 postCustomfieldAdd($body, $idempotencyKey)
+## `postCustomfieldAdd()`
+
+```php
+postCustomfieldAdd($idempotencyKey, $customField): \Planfix\Model\PostContact201Response
+```
 
 Create a custom field for contact
 
 This method lets you create a custom field for contact
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsContactApi(
@@ -192,28 +219,27 @@ $apiInstance = new Planfix\Api\CustomFieldsContactApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\CustomField(); // \Planfix\Model\CustomField | 
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$customField = {"name":"Line","names":{"en":"Line","fr":"Ligne"},"type":0,"groupId":1}; // \Planfix\Model\CustomField
 
 try {
-    $result = $apiInstance->postCustomfieldAdd($body, $idempotencyKey);
+    $result = $apiInstance->postCustomfieldAdd($idempotencyKey, $customField);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsContactApi->postCustomfieldAdd: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\CustomField**](../Model/CustomField.md)|  | [optional]
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
+| **customField** | [**\Planfix\Model\CustomField**](../Model/CustomField.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse201**](../Model/InlineResponse201.md)
+[**\Planfix\Model\PostContact201Response**](../Model/PostContact201Response.md)
 
 ### Authorization
 
@@ -221,25 +247,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postCustomfieldSetAdd**
-> \Planfix\Model\InlineResponse201 postCustomfieldSetAdd($body, $idempotencyKey)
+## `postCustomfieldSetAdd()`
+
+```php
+postCustomfieldSetAdd($idempotencyKey, $shortEntity): \Planfix\Model\PostContact201Response
+```
 
 Create a custom fields set for contact
 
 This method lets you create a custom fields set for contact
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\CustomFieldsContactApi(
@@ -248,28 +281,27 @@ $apiInstance = new Planfix\Api\CustomFieldsContactApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\ShortEntity(); // \Planfix\Model\ShortEntity | 
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$shortEntity = {"name":"My custom fields set for contacts"}; // \Planfix\Model\ShortEntity
 
 try {
-    $result = $apiInstance->postCustomfieldSetAdd($body, $idempotencyKey);
+    $result = $apiInstance->postCustomfieldSetAdd($idempotencyKey, $shortEntity);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsContactApi->postCustomfieldSetAdd: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\ShortEntity**](../Model/ShortEntity.md)|  | [optional]
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
+| **shortEntity** | [**\Planfix\Model\ShortEntity**](../Model/ShortEntity.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse201**](../Model/InlineResponse201.md)
+[**\Planfix\Model\PostContact201Response**](../Model/PostContact201Response.md)
 
 ### Authorization
 
@@ -277,8 +309,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

@@ -1,30 +1,38 @@
 # Planfix\SystemApi
 
-All URIs are relative to *https://your-account.planfix.com/rest*
+Operations with system settings
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getUserInfo**](SystemApi.md#getuserinfo) | **GET** /userinfo | Get information about the authenticated user
-[**getUserPositions**](SystemApi.md#getuserpositions) | **GET** /user/positions/ | Get list of employee positions
-[**getWorkspaces**](SystemApi.md#getworkspaces) | **GET** /workspace/list | Get list of workspaces
-[**postIntegrationTelegramBotWebhook**](SystemApi.md#postintegrationtelegrambotwebhook) | **POST** /integration/telegram/bots/{botId}/webhook | Update Telegram bot webhook settings
-[**postUserPositions**](SystemApi.md#postuserpositions) | **POST** /user/positions/ | Create employee position
-[**postUserPositionsId**](SystemApi.md#postuserpositionsid) | **POST** /user/positions/{id} | Update employee position
+All URIs are relative to https://your-account.planfix.com/rest, except if the operation defines another base path.
 
-# **getUserInfo**
-> \Planfix\Model\UserInfoResponse getUserInfo()
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getUserInfo()**](SystemApi.md#getUserInfo) | **GET** /userinfo | Get information about the authenticated user |
+| [**getUserPositions()**](SystemApi.md#getUserPositions) | **GET** /user/positions/ | Get list of employee positions |
+| [**getWorkspaces()**](SystemApi.md#getWorkspaces) | **GET** /workspace/list | Get list of workspaces |
+| [**postIntegrationTelegramBotWebhook()**](SystemApi.md#postIntegrationTelegramBotWebhook) | **POST** /integration/telegram/bots/{botId}/webhook | Update Telegram bot webhook settings |
+| [**postUserPositions()**](SystemApi.md#postUserPositions) | **POST** /user/positions/ | Create employee position |
+| [**postUserPositionsId()**](SystemApi.md#postUserPositionsId) | **POST** /user/positions/{id} | Update employee position |
+
+
+## `getUserInfo()`
+
+```php
+getUserInfo(): \Planfix\Model\UserInfoResponse
+```
 
 Get information about the authenticated user
 
 Returns the profile associated with the current bearer token.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\SystemApi(
@@ -40,10 +48,10 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SystemApi->getUserInfo: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -56,25 +64,32 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getUserPositions**
-> \Planfix\Model\InlineResponse20045 getUserPositions($fields)
+## `getUserPositions()`
+
+```php
+getUserPositions($fields): \Planfix\Model\GetUserPositions200Response
+```
 
 Get list of employee positions
 
 This method lets you get a list of employee positions
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\SystemApi(
@@ -83,7 +98,7 @@ $apiInstance = new Planfix\Api\SystemApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name
+$fields = id,name; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name
 
 try {
     $result = $apiInstance->getUserPositions($fields);
@@ -91,18 +106,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SystemApi->getUserPositions: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\Planfix\Model\GetUserPositions200Response**](../Model/GetUserPositions200Response.md)
 
 ### Authorization
 
@@ -110,25 +124,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getWorkspaces**
-> \Planfix\Model\InlineResponse20044 getWorkspaces()
+## `getWorkspaces()`
+
+```php
+getWorkspaces(): \Planfix\Model\GetWorkspaces200Response
+```
 
 Get list of workspaces
 
 This method allows you to retrieve a list of available workspaces
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\SystemApi(
@@ -144,15 +165,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SystemApi->getWorkspaces: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\Planfix\Model\GetWorkspaces200Response**](../Model/GetWorkspaces200Response.md)
 
 ### Authorization
 
@@ -160,25 +181,32 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postIntegrationTelegramBotWebhook**
-> \Planfix\Model\TelegramWebhookSettingsResponse postIntegrationTelegramBotWebhook($body, $botId)
+## `postIntegrationTelegramBotWebhook()`
+
+```php
+postIntegrationTelegramBotWebhook($botId, $telegramWebhookSettingsRequest): \Planfix\Model\TelegramWebhookSettingsResponse
+```
 
 Update Telegram bot webhook settings
 
 This method lets an account administrator configure the secret token used to verify Telegram webhook updates for a Telegram bot. Use it when the Telegram webhook is managed by an external server and updates are forwarded to Planfix. The secret token is saved in Planfix and is never returned in responses. The REST token must allow access to system settings.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\SystemApi(
@@ -187,24 +215,23 @@ $apiInstance = new Planfix\Api\SystemApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\TelegramWebhookSettingsRequest(); // \Planfix\Model\TelegramWebhookSettingsRequest | 
-$botId = 789; // int | Telegram bot identifier
+$botId = 12345; // int | Telegram bot identifier
+$telegramWebhookSettingsRequest = {"secretToken":"qB4YuT_IzRRhNTz3y5B0Vzt23y24ddVM","webhookManagedExternally":true}; // \Planfix\Model\TelegramWebhookSettingsRequest
 
 try {
-    $result = $apiInstance->postIntegrationTelegramBotWebhook($body, $botId);
+    $result = $apiInstance->postIntegrationTelegramBotWebhook($botId, $telegramWebhookSettingsRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SystemApi->postIntegrationTelegramBotWebhook: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\TelegramWebhookSettingsRequest**](../Model/TelegramWebhookSettingsRequest.md)|  |
- **botId** | **int**| Telegram bot identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **botId** | **int**| Telegram bot identifier | |
+| **telegramWebhookSettingsRequest** | [**\Planfix\Model\TelegramWebhookSettingsRequest**](../Model/TelegramWebhookSettingsRequest.md)|  | |
 
 ### Return type
 
@@ -216,25 +243,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postUserPositions**
-> \Planfix\Model\InlineResponse2017 postUserPositions($body, $idempotencyKey)
+## `postUserPositions()`
+
+```php
+postUserPositions($idempotencyKey, $postUserPositionsRequest): \Planfix\Model\PostUserPositions201Response
+```
 
 Create employee position
 
 This method lets you create a new employee position
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\SystemApi(
@@ -243,28 +277,27 @@ $apiInstance = new Planfix\Api\SystemApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\UserPositionsBody(); // \Planfix\Model\UserPositionsBody | 
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$postUserPositionsRequest = {"name":"Project Manager"}; // \Planfix\Model\PostUserPositionsRequest
 
 try {
-    $result = $apiInstance->postUserPositions($body, $idempotencyKey);
+    $result = $apiInstance->postUserPositions($idempotencyKey, $postUserPositionsRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SystemApi->postUserPositions: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\UserPositionsBody**](../Model/UserPositionsBody.md)|  | [optional]
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
+| **postUserPositionsRequest** | [**\Planfix\Model\PostUserPositionsRequest**](../Model/PostUserPositionsRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse2017**](../Model/InlineResponse2017.md)
+[**\Planfix\Model\PostUserPositions201Response**](../Model/PostUserPositions201Response.md)
 
 ### Authorization
 
@@ -272,25 +305,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postUserPositionsId**
-> object postUserPositionsId($id, $body)
+## `postUserPositionsId()`
+
+```php
+postUserPositionsId($id, $postUserPositionsIdRequest): object
+```
 
 Update employee position
 
 This method lets you update an existing employee position by its identifier
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\SystemApi(
@@ -299,24 +339,23 @@ $apiInstance = new Planfix\Api\SystemApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Position identifier
-$body = new \Planfix\Model\PositionsIdBody(); // \Planfix\Model\PositionsIdBody | 
+$id = 123; // int | Position identifier
+$postUserPositionsIdRequest = {"name":"Senior Project Manager"}; // \Planfix\Model\PostUserPositionsIdRequest
 
 try {
-    $result = $apiInstance->postUserPositionsId($id, $body);
+    $result = $apiInstance->postUserPositionsId($id, $postUserPositionsIdRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SystemApi->postUserPositionsId: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Position identifier |
- **body** | [**\Planfix\Model\PositionsIdBody**](../Model/PositionsIdBody.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Position identifier | |
+| **postUserPositionsIdRequest** | [**\Planfix\Model\PostUserPositionsIdRequest**](../Model/PostUserPositionsIdRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -328,8 +367,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

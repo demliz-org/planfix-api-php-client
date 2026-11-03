@@ -1,33 +1,41 @@
 # Planfix\DirectoryApi
 
-All URIs are relative to *https://your-account.planfix.com/rest*
+Operations with directories
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteDirectoryEntryKey**](DirectoryApi.md#deletedirectoryentrykey) | **DELETE** /directory/{id}/entry/{key} | Delete directory entry
-[**getDirectoriesGroups**](DirectoryApi.md#getdirectoriesgroups) | **GET** /directory/groups | Get list of directory groups
-[**getDirectoryById**](DirectoryApi.md#getdirectorybyid) | **GET** /directory/{id} | Get directory by identifier
-[**getDirectoryIdEntryKey**](DirectoryApi.md#getdirectoryidentrykey) | **GET** /directory/{id}/entry/{key} | Get directory entry
-[**getListDirectories**](DirectoryApi.md#getlistdirectories) | **POST** /directory/list | Get list of directories
-[**postAddDirectoryEntry**](DirectoryApi.md#postadddirectoryentry) | **POST** /directory/{id}/entry/ | Add directory entry
-[**postDirectoryEntriesFilters**](DirectoryApi.md#postdirectoryentriesfilters) | **POST** /directory/{id}/filters | Get list directory entries filters
-[**postListDirectoryEntries**](DirectoryApi.md#postlistdirectoryentries) | **POST** /directory/{id}/entry/list | Get list of directory entries
-[**postUpdateDirectoryEntry**](DirectoryApi.md#postupdatedirectoryentry) | **POST** /directory/{id}/entry/{key} | Update directory entry
+All URIs are relative to https://your-account.planfix.com/rest, except if the operation defines another base path.
 
-# **deleteDirectoryEntryKey**
-> deleteDirectoryEntryKey($key, $id)
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteDirectoryEntryKey()**](DirectoryApi.md#deleteDirectoryEntryKey) | **DELETE** /directory/{id}/entry/{key} | Delete directory entry |
+| [**getDirectoriesGroups()**](DirectoryApi.md#getDirectoriesGroups) | **GET** /directory/groups | Get list of directory groups |
+| [**getDirectoryById()**](DirectoryApi.md#getDirectoryById) | **GET** /directory/{id} | Get directory by identifier |
+| [**getDirectoryIdEntryKey()**](DirectoryApi.md#getDirectoryIdEntryKey) | **GET** /directory/{id}/entry/{key} | Get directory entry |
+| [**getListDirectories()**](DirectoryApi.md#getListDirectories) | **POST** /directory/list | Get list of directories |
+| [**postAddDirectoryEntry()**](DirectoryApi.md#postAddDirectoryEntry) | **POST** /directory/{id}/entry/ | Add directory entry |
+| [**postDirectoryEntriesFilters()**](DirectoryApi.md#postDirectoryEntriesFilters) | **POST** /directory/{id}/filters | Get list directory entries filters |
+| [**postListDirectoryEntries()**](DirectoryApi.md#postListDirectoryEntries) | **POST** /directory/{id}/entry/list | Get list of directory entries |
+| [**postUpdateDirectoryEntry()**](DirectoryApi.md#postUpdateDirectoryEntry) | **POST** /directory/{id}/entry/{key} | Update directory entry |
+
+
+## `deleteDirectoryEntryKey()`
+
+```php
+deleteDirectoryEntryKey($key, $id)
+```
 
 Delete directory entry
 
 This method lets you delete a directory entry by key
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -37,22 +45,21 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     $config
 );
 $key = 56; // int | Key of the directory entry
-$id = "id_example"; // string | Directory identifier
+$id = 'id_example'; // string | Directory identifier
 
 try {
     $apiInstance->deleteDirectoryEntryKey($key, $id);
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->deleteDirectoryEntryKey: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **int**| Key of the directory entry |
- **id** | **string**| Directory identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **key** | **int**| Key of the directory entry | |
+| **id** | **string**| Directory identifier | |
 
 ### Return type
 
@@ -64,25 +71,32 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getDirectoriesGroups**
-> \Planfix\Model\InlineResponse2006 getDirectoriesGroups($fields)
+## `getDirectoriesGroups()`
+
+```php
+getDirectoriesGroups($fields): \Planfix\Model\GetContactListGroups200Response
+```
 
 Get list of directory groups
 
 This method lets you get a list of directory groups
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -91,7 +105,7 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name
+$fields = id,name; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name
 
 try {
     $result = $apiInstance->getDirectoriesGroups($fields);
@@ -99,18 +113,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->getDirectoriesGroups: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Planfix\Model\GetContactListGroups200Response**](../Model/GetContactListGroups200Response.md)
 
 ### Authorization
 
@@ -118,25 +131,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getDirectoryById**
-> \Planfix\Model\InlineResponse20029 getDirectoryById($id, $fields)
+## `getDirectoryById()`
+
+```php
+getDirectoryById($id, $fields): \Planfix\Model\GetDirectoryById200Response
+```
 
 Get directory by identifier
 
 This method lets you get a directory from its ID
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -146,7 +166,7 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     $config
 );
 $id = 56; // int | Directory identifier
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, group, fields, sourceObjectId, sourceDataVersion
+$fields = id,name,fields; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, group, fields, sourceObjectId, sourceDataVersion
 
 try {
     $result = $apiInstance->getDirectoryById($id, $fields);
@@ -154,19 +174,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->getDirectoryById: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Directory identifier |
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, group, fields, sourceObjectId, sourceDataVersion | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Directory identifier | |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, group, fields, sourceObjectId, sourceDataVersion | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\Planfix\Model\GetDirectoryById200Response**](../Model/GetDirectoryById200Response.md)
 
 ### Authorization
 
@@ -174,25 +193,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getDirectoryIdEntryKey**
-> \Planfix\Model\InlineResponse20031 getDirectoryIdEntryKey($id, $key, $fields)
+## `getDirectoryIdEntryKey()`
+
+```php
+getDirectoryIdEntryKey($id, $key, $fields): \Planfix\Model\GetDirectoryIdEntryKey200Response
+```
 
 Get directory entry
 
 This method lets you geta directory entry by its key
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -201,9 +227,9 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | Directory identifier
+$id = 'id_example'; // string | Directory identifier
 $key = 56; // int | Key of the directory entry
-$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* directory, key, parentKey, archived, isGroup
+$fields = directory,parentKey,key,archived,isGroup,1296,1298; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* directory, key, parentKey, archived, isGroup
 
 try {
     $result = $apiInstance->getDirectoryIdEntryKey($id, $key, $fields);
@@ -211,20 +237,19 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->getDirectoryIdEntryKey: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Directory identifier |
- **key** | **int**| Key of the directory entry |
- **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* directory, key, parentKey, archived, isGroup | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Directory identifier | |
+| **key** | **int**| Key of the directory entry | |
+| **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* directory, key, parentKey, archived, isGroup | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
+[**\Planfix\Model\GetDirectoryIdEntryKey200Response**](../Model/GetDirectoryIdEntryKey200Response.md)
 
 ### Authorization
 
@@ -232,25 +257,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getListDirectories**
-> \Planfix\Model\InlineResponse20030 getListDirectories($body)
+## `getListDirectories()`
+
+```php
+getListDirectories($getListDirectoriesRequest): \Planfix\Model\GetListDirectories200Response
+```
 
 Get list of directories
 
 This method lets you get a list of directories
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -259,26 +291,25 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\DirectoryListBody(); // \Planfix\Model\DirectoryListBody | 
+$getListDirectoriesRequest = {"offset":0,"pageSize":100,"fields":"id,name,group,fields"}; // \Planfix\Model\GetListDirectoriesRequest | 
 
 try {
-    $result = $apiInstance->getListDirectories($body);
+    $result = $apiInstance->getListDirectories($getListDirectoriesRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->getListDirectories: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\DirectoryListBody**](../Model/DirectoryListBody.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **getListDirectoriesRequest** | [**\Planfix\Model\GetListDirectoriesRequest**](../Model/GetListDirectoriesRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\Planfix\Model\GetListDirectories200Response**](../Model/GetListDirectories200Response.md)
 
 ### Authorization
 
@@ -286,25 +317,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postAddDirectoryEntry**
-> postAddDirectoryEntry($id, $body, $idempotencyKey)
+## `postAddDirectoryEntry()`
+
+```php
+postAddDirectoryEntry($id, $idempotencyKey, $directoryEntryRequest)
+```
 
 Add directory entry
 
 This method lets you add a directory entry
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -314,24 +352,23 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     $config
 );
 $id = 56; // int | Directory identifier
-$body = new \Planfix\Model\DirectoryEntryRequest(); // \Planfix\Model\DirectoryEntryRequest | 
-$idempotencyKey = "idempotencyKey_example"; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$idempotencyKey = 'idempotencyKey_example'; // string | Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000
+$directoryEntryRequest = {"parentKey":0,"name":"New group","isGroup":true}; // \Planfix\Model\DirectoryEntryRequest
 
 try {
-    $apiInstance->postAddDirectoryEntry($id, $body, $idempotencyKey);
+    $apiInstance->postAddDirectoryEntry($id, $idempotencyKey, $directoryEntryRequest);
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->postAddDirectoryEntry: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Directory identifier |
- **body** | [**\Planfix\Model\DirectoryEntryRequest**](../Model/DirectoryEntryRequest.md)|  | [optional]
- **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Directory identifier | |
+| **idempotencyKey** | **string**| Optional key used to make repeated requests idempotent. Example: 550e8400-e29b-41d4-a716-446655440000 | [optional] |
+| **directoryEntryRequest** | [**\Planfix\Model\DirectoryEntryRequest**](../Model/DirectoryEntryRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -343,25 +380,32 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postDirectoryEntriesFilters**
-> \Planfix\Model\InlineResponse2007 postDirectoryEntriesFilters($id)
+## `postDirectoryEntriesFilters()`
+
+```php
+postDirectoryEntriesFilters($id): \Planfix\Model\PostContactFilters200Response
+```
 
 Get list directory entries filters
 
 This method lets you get list directory entries filters
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -370,7 +414,7 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | Directory identifier
+$id = 'id_example'; // string | Directory identifier
 
 try {
     $result = $apiInstance->postDirectoryEntriesFilters($id);
@@ -378,18 +422,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->postDirectoryEntriesFilters: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Directory identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Directory identifier | |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Planfix\Model\PostContactFilters200Response**](../Model/PostContactFilters200Response.md)
 
 ### Authorization
 
@@ -397,25 +440,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postListDirectoryEntries**
-> \Planfix\Model\InlineResponse20032 postListDirectoryEntries($id, $body)
+## `postListDirectoryEntries()`
+
+```php
+postListDirectoryEntries($id, $postListDirectoryEntriesRequest): \Planfix\Model\PostListDirectoryEntries200Response
+```
 
 Get list of directory entries
 
 This method lets you to get a list of directory entries
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -424,28 +474,27 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | Directory identifier
-$body = new \Planfix\Model\EntryListBody1(); // \Planfix\Model\EntryListBody1 | 
+$id = 'id_example'; // string | Directory identifier
+$postListDirectoryEntriesRequest = {"offset":0,"pageSize":100,"filters":[{"type":6006,"operator":"equal","value":5}],"fields":"directory,parentKey,name,key"}; // \Planfix\Model\PostListDirectoryEntriesRequest
 
 try {
-    $result = $apiInstance->postListDirectoryEntries($id, $body);
+    $result = $apiInstance->postListDirectoryEntries($id, $postListDirectoryEntriesRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->postListDirectoryEntries: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Directory identifier |
- **body** | [**\Planfix\Model\EntryListBody1**](../Model/EntryListBody1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Directory identifier | |
+| **postListDirectoryEntriesRequest** | [**\Planfix\Model\PostListDirectoryEntriesRequest**](../Model/PostListDirectoryEntriesRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+[**\Planfix\Model\PostListDirectoryEntries200Response**](../Model/PostListDirectoryEntries200Response.md)
 
 ### Authorization
 
@@ -453,25 +502,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postUpdateDirectoryEntry**
-> postUpdateDirectoryEntry($key, $id, $body, $silent)
+## `postUpdateDirectoryEntry()`
+
+```php
+postUpdateDirectoryEntry($key, $id, $silent, $directoryEntryRequest)
+```
 
 Update directory entry
 
 This method lets you update a directory entry
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DirectoryApi(
@@ -481,26 +537,25 @@ $apiInstance = new Planfix\Api\DirectoryApi(
     $config
 );
 $key = 56; // int | Key of the directory entry
-$id = "id_example"; // string | Directory identifier
-$body = new \Planfix\Model\DirectoryEntryRequest(); // \Planfix\Model\DirectoryEntryRequest | 
+$id = 'id_example'; // string | Directory identifier
 $silent = false; // bool | Silent mode
+$directoryEntryRequest = {"parentKey":2,"name":"Changed group","isGroup":true}; // \Planfix\Model\DirectoryEntryRequest
 
 try {
-    $apiInstance->postUpdateDirectoryEntry($key, $id, $body, $silent);
+    $apiInstance->postUpdateDirectoryEntry($key, $id, $silent, $directoryEntryRequest);
 } catch (Exception $e) {
     echo 'Exception when calling DirectoryApi->postUpdateDirectoryEntry: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **int**| Key of the directory entry |
- **id** | **string**| Directory identifier |
- **body** | [**\Planfix\Model\DirectoryEntryRequest**](../Model/DirectoryEntryRequest.md)|  | [optional]
- **silent** | **bool**| Silent mode | [optional] [default to false]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **key** | **int**| Key of the directory entry | |
+| **id** | **string**| Directory identifier | |
+| **silent** | **bool**| Silent mode | [optional] [default to false] |
+| **directoryEntryRequest** | [**\Planfix\Model\DirectoryEntryRequest**](../Model/DirectoryEntryRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -512,8 +567,9 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

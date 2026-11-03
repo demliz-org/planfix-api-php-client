@@ -1,30 +1,38 @@
 # Planfix\DataTagsApi
 
-All URIs are relative to *https://your-account.planfix.com/rest*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteDatatagEntryKey**](DataTagsApi.md#deletedatatagentrykey) | **DELETE** /datatag/entry/{key} | Delete data tag entry
-[**getDataTags**](DataTagsApi.md#getdatatags) | **POST** /datatag/list | Get data tags
-[**getDatatagEntryKey**](DataTagsApi.md#getdatatagentrykey) | **GET** /datatag/entry/{key} | Get data tag entry
-[**getDatatagId**](DataTagsApi.md#getdatatagid) | **GET** /datatag/{id} | Get data tag by identifier
-[**postListDataTagEntries**](DataTagsApi.md#postlistdatatagentries) | **POST** /datatag/{id}/entry/list | Get list of data tag entries
-[**postUpdateDataTagEntry**](DataTagsApi.md#postupdatedatatagentry) | **POST** /datatag/entry/{key} | Update data tag entry
 
-# **deleteDatatagEntryKey**
-> deleteDatatagEntryKey($key)
+All URIs are relative to https://your-account.planfix.com/rest, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteDatatagEntryKey()**](DataTagsApi.md#deleteDatatagEntryKey) | **DELETE** /datatag/entry/{key} | Delete data tag entry |
+| [**getDataTags()**](DataTagsApi.md#getDataTags) | **POST** /datatag/list | Get data tags |
+| [**getDatatagEntryKey()**](DataTagsApi.md#getDatatagEntryKey) | **GET** /datatag/entry/{key} | Get data tag entry |
+| [**getDatatagId()**](DataTagsApi.md#getDatatagId) | **GET** /datatag/{id} | Get data tag by identifier |
+| [**postListDataTagEntries()**](DataTagsApi.md#postListDataTagEntries) | **POST** /datatag/{id}/entry/list | Get list of data tag entries |
+| [**postUpdateDataTagEntry()**](DataTagsApi.md#postUpdateDataTagEntry) | **POST** /datatag/entry/{key} | Update data tag entry |
+
+
+## `deleteDatatagEntryKey()`
+
+```php
+deleteDatatagEntryKey($key)
+```
 
 Delete data tag entry
 
 This method lets you delete a data tag entry by key
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DataTagsApi(
@@ -33,21 +41,20 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$key = 56; // int | Key of the data tag entry
+$key = 155; // int | Key of the data tag entry
 
 try {
     $apiInstance->deleteDatatagEntryKey($key);
 } catch (Exception $e) {
     echo 'Exception when calling DataTagsApi->deleteDatatagEntryKey: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **int**| Key of the data tag entry |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **key** | **int**| Key of the data tag entry | |
 
 ### Return type
 
@@ -59,25 +66,32 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getDataTags**
-> \Planfix\Model\InlineResponse20017 getDataTags($body)
+## `getDataTags()`
+
+```php
+getDataTags($getDataTagsRequest): \Planfix\Model\GetDataTags200Response
+```
 
 Get data tags
 
 This method lets you get a list of data tags
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DataTagsApi(
@@ -86,26 +100,25 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\DatatagListBody(); // \Planfix\Model\DatatagListBody | 
+$getDataTagsRequest = {"offset":0,"pageSize":100,"fields":"id,name,group,fields"}; // \Planfix\Model\GetDataTagsRequest
 
 try {
-    $result = $apiInstance->getDataTags($body);
+    $result = $apiInstance->getDataTags($getDataTagsRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataTagsApi->getDataTags: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\DatatagListBody**](../Model/DatatagListBody.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **getDataTagsRequest** | [**\Planfix\Model\GetDataTagsRequest**](../Model/GetDataTagsRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
+[**\Planfix\Model\GetDataTags200Response**](../Model/GetDataTags200Response.md)
 
 ### Authorization
 
@@ -113,25 +126,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getDatatagEntryKey**
-> \Planfix\Model\InlineResponse20018 getDatatagEntryKey($key, $fields)
+## `getDatatagEntryKey()`
+
+```php
+getDatatagEntryKey($key, $fields): \Planfix\Model\GetDatatagEntryKey200Response
+```
 
 Get data tag entry
 
 This method lets you get a data tag entry by key
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DataTagsApi(
@@ -140,8 +160,8 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$key = 56; // int | Key of the data tag entry
-$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* dataTag, key, task, contact, commentId
+$key = 155; // int | Key of the data tag entry
+$fields = key,dataTag,10,11; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* dataTag, key, task, contact, commentId
 
 try {
     $result = $apiInstance->getDatatagEntryKey($key, $fields);
@@ -149,19 +169,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DataTagsApi->getDatatagEntryKey: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **int**| Key of the data tag entry |
- **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* dataTag, key, task, contact, commentId | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **key** | **int**| Key of the data tag entry | |
+| **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* dataTag, key, task, contact, commentId | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+[**\Planfix\Model\GetDatatagEntryKey200Response**](../Model/GetDatatagEntryKey200Response.md)
 
 ### Authorization
 
@@ -169,25 +188,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getDatatagId**
-> \Planfix\Model\InlineResponse20016 getDatatagId($id, $fields)
+## `getDatatagId()`
+
+```php
+getDatatagId($id, $fields): \Planfix\Model\GetDatatagId200Response
+```
 
 Get data tag by identifier
 
 This method lets you get a data tag by its ID
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DataTagsApi(
@@ -197,7 +223,7 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     $config
 );
 $id = 56; // int | Data tag identifier
-$fields = "fields_example"; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* id, name, group, fields
+$fields = id,name,group,fields; // string | Fields returned - custom field identifiers, system field names, comma-delimited. <br>*Possible for system fields:* id, name, group, fields
 
 try {
     $result = $apiInstance->getDatatagId($id, $fields);
@@ -205,19 +231,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DataTagsApi->getDatatagId: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Data tag identifier |
- **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, group, fields | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Data tag identifier | |
+| **fields** | **string**| Fields returned - custom field identifiers, system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, group, fields | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\Planfix\Model\GetDatatagId200Response**](../Model/GetDatatagId200Response.md)
 
 ### Authorization
 
@@ -225,25 +250,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postListDataTagEntries**
-> \Planfix\Model\InlineResponse20019 postListDataTagEntries($id, $body)
+## `postListDataTagEntries()`
+
+```php
+postListDataTagEntries($id, $postListDataTagEntriesRequest): \Planfix\Model\PostListDataTagEntries200Response
+```
 
 Get list of data tag entries
 
 This method lets you get a list of data tag entries
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DataTagsApi(
@@ -253,27 +285,26 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     $config
 );
 $id = 56; // int | Identifier of data tag
-$body = new \Planfix\Model\EntryListBody(); // \Planfix\Model\EntryListBody | 
+$postListDataTagEntriesRequest = {"offset":0,"pageSize":100,"fields":"dataTag,key,commentId,task,contact,10"}; // \Planfix\Model\PostListDataTagEntriesRequest
 
 try {
-    $result = $apiInstance->postListDataTagEntries($id, $body);
+    $result = $apiInstance->postListDataTagEntries($id, $postListDataTagEntriesRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataTagsApi->postListDataTagEntries: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Identifier of data tag |
- **body** | [**\Planfix\Model\EntryListBody**](../Model/EntryListBody.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Identifier of data tag | |
+| **postListDataTagEntriesRequest** | [**\Planfix\Model\PostListDataTagEntriesRequest**](../Model/PostListDataTagEntriesRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
+[**\Planfix\Model\PostListDataTagEntries200Response**](../Model/PostListDataTagEntries200Response.md)
 
 ### Authorization
 
@@ -281,25 +312,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **postUpdateDataTagEntry**
-> postUpdateDataTagEntry($key, $body, $silent)
+## `postUpdateDataTagEntry()`
+
+```php
+postUpdateDataTagEntry($key, $silent, $dataTagEntryUpdateRequest)
+```
 
 Update data tag entry
 
 This method lets you update a data tag entry
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\DataTagsApi(
@@ -308,25 +346,24 @@ $apiInstance = new Planfix\Api\DataTagsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$key = 56; // int | Key of the data tag entry
-$body = new \Planfix\Model\DataTagEntryUpdateRequest(); // \Planfix\Model\DataTagEntryUpdateRequest | 
+$key = 155; // int | Key of the data tag entry
 $silent = false; // bool | Silent mode
+$dataTagEntryUpdateRequest = {"customFieldData":[{"field":{"id":10},"value":"Test value"}]}; // \Planfix\Model\DataTagEntryUpdateRequest
 
 try {
-    $apiInstance->postUpdateDataTagEntry($key, $body, $silent);
+    $apiInstance->postUpdateDataTagEntry($key, $silent, $dataTagEntryUpdateRequest);
 } catch (Exception $e) {
     echo 'Exception when calling DataTagsApi->postUpdateDataTagEntry: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **int**| Key of the data tag entry |
- **body** | [**\Planfix\Model\DataTagEntryUpdateRequest**](../Model/DataTagEntryUpdateRequest.md)|  | [optional]
- **silent** | **bool**| Silent mode | [optional] [default to false]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **key** | **int**| Key of the data tag entry | |
+| **silent** | **bool**| Silent mode | [optional] [default to false] |
+| **dataTagEntryUpdateRequest** | [**\Planfix\Model\DataTagEntryUpdateRequest**](../Model/DataTagEntryUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -338,8 +375,9 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

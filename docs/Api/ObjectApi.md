@@ -1,27 +1,35 @@
 # Planfix\ObjectApi
 
-All URIs are relative to *https://your-account.planfix.com/rest*
+Operations with objects
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getObjectById**](ObjectApi.md#getobjectbyid) | **GET** /object/{id} | Get object by number
-[**getObjectList**](ObjectApi.md#getobjectlist) | **POST** /object/list | Get list of objects
-[**getObjectTaskStatusList**](ObjectApi.md#getobjecttaskstatuslist) | **GET** /object/{id}/statuses | Get list of task statuses for object
+All URIs are relative to https://your-account.planfix.com/rest, except if the operation defines another base path.
 
-# **getObjectById**
-> \Planfix\Model\InlineResponse20047 getObjectById($id)
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getObjectById()**](ObjectApi.md#getObjectById) | **GET** /object/{id} | Get object by number |
+| [**getObjectList()**](ObjectApi.md#getObjectList) | **POST** /object/list | Get list of objects |
+| [**getObjectTaskStatusList()**](ObjectApi.md#getObjectTaskStatusList) | **GET** /object/{id}/statuses | Get list of task statuses for object |
+
+
+## `getObjectById()`
+
+```php
+getObjectById($id): \Planfix\Model\GetObjectById200Response
+```
 
 Get object by number
 
 This method lets you get a object by number
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\ObjectApi(
@@ -30,7 +38,7 @@ $apiInstance = new Planfix\Api\ObjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 789; // int | Number of object
+$id = 56; // int | Number of object
 
 try {
     $result = $apiInstance->getObjectById($id);
@@ -38,18 +46,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ObjectApi->getObjectById: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Number of object |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Number of object | |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
+[**\Planfix\Model\GetObjectById200Response**](../Model/GetObjectById200Response.md)
 
 ### Authorization
 
@@ -57,25 +64,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getObjectList**
-> \Planfix\Model\InlineResponse20048 getObjectList($body)
+## `getObjectList()`
+
+```php
+getObjectList($getObjectListRequest): \Planfix\Model\GetObjectList200Response
+```
 
 Get list of objects
 
 This method lets you get a list of objects
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\ObjectApi(
@@ -84,26 +98,25 @@ $apiInstance = new Planfix\Api\ObjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Planfix\Model\ObjectListBody(); // \Planfix\Model\ObjectListBody | 
+$getObjectListRequest = {"offset":0,"pageSize":100}; // \Planfix\Model\GetObjectListRequest
 
 try {
-    $result = $apiInstance->getObjectList($body);
+    $result = $apiInstance->getObjectList($getObjectListRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObjectApi->getObjectList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Planfix\Model\ObjectListBody**](../Model/ObjectListBody.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **getObjectListRequest** | [**\Planfix\Model\GetObjectListRequest**](../Model/GetObjectListRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20048**](../Model/InlineResponse20048.md)
+[**\Planfix\Model\GetObjectList200Response**](../Model/GetObjectList200Response.md)
 
 ### Authorization
 
@@ -111,25 +124,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getObjectTaskStatusList**
-> \Planfix\Model\InlineResponse20038 getObjectTaskStatusList($id, $fields)
+## `getObjectTaskStatusList()`
+
+```php
+getObjectTaskStatusList($id, $fields): \Planfix\Model\GetTaskStatusList200Response
+```
 
 Get list of task statuses for object
 
 This method lets you get a list of task statuses for object
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: rest_auth
-    $config = Planfix\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+// Configure Bearer authorization: rest_auth
+$config = Planfix\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Planfix\Api\ObjectApi(
@@ -138,8 +158,8 @@ $apiInstance = new Planfix\Api\ObjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 789; // int | Number of object
-$fields = "fields_example"; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, color, isActive, hasDeadline, isAppliedIndividually, texts
+$id = 56; // int | Number of object
+$fields = name,isActive,texts; // string | Fields returned - system field names, comma-delimited. <br>*Possible for system fields:* id, name, color, isActive, hasDeadline, isAppliedIndividually, texts
 
 try {
     $result = $apiInstance->getObjectTaskStatusList($id, $fields);
@@ -147,19 +167,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ObjectApi->getObjectTaskStatusList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Number of object |
- **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, color, isActive, hasDeadline, isAppliedIndividually, texts | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Number of object | |
+| **fields** | **string**| Fields returned - system field names, comma-delimited. &lt;br&gt;*Possible for system fields:* id, name, color, isActive, hasDeadline, isAppliedIndividually, texts | [optional] |
 
 ### Return type
 
-[**\Planfix\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
+[**\Planfix\Model\GetTaskStatusList200Response**](../Model/GetTaskStatusList200Response.md)
 
 ### Authorization
 
@@ -167,8 +186,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
